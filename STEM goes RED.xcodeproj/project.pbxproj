@@ -1,0 +1,631 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2466AD711FE99AAC00699027 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466AD701FE99AAC00699027 /* AppDelegate.swift */; };
+		2466AD761FE99AAC00699027 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2466AD741FE99AAC00699027 /* Main.storyboard */; };
+		2466AD781FE99AAC00699027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2466AD771FE99AAC00699027 /* Assets.xcassets */; };
+		2466AD7B1FE99AAC00699027 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2466AD791FE99AAC00699027 /* LaunchScreen.storyboard */; };
+		2466AD861FE99AAC00699027 /* STEM_goes_REDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466AD851FE99AAC00699027 /* STEM_goes_REDTests.swift */; };
+		2466AD911FE99AAC00699027 /* STEM_goes_REDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466AD901FE99AAC00699027 /* STEM_goes_REDUITests.swift */; };
+		2466AD9F1FEAED5D00699027 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466AD9E1FEAED5D00699027 /* ContainerViewController.swift */; };
+		2466ADA11FEAED6E00699027 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADA01FEAED6E00699027 /* LoginViewController.swift */; };
+		2466ADA31FEAED7B00699027 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADA21FEAED7B00699027 /* SignUpViewController.swift */; };
+		2466ADA51FEAED9300699027 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADA41FEAED9300699027 /* HomeViewController.swift */; };
+		2466ADA71FEAEDA500699027 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADA61FEAEDA500699027 /* AboutViewController.swift */; };
+		2466ADA91FEAEDC800699027 /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADA81FEAEDC800699027 /* AboutTableViewCell.swift */; };
+		2466ADAB1FEAEDD600699027 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADAA1FEAEDD600699027 /* LocationTableViewCell.swift */; };
+		2466ADAD1FEAEDE300699027 /* AgendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADAC1FEAEDE300699027 /* AgendaTableViewCell.swift */; };
+		2466ADAF1FEAEECD00699027 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADAE1FEAEECD00699027 /* HeaderViewController.swift */; };
+		2466ADB11FEAEF0200699027 /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADB01FEAEF0200699027 /* StartUpViewController.swift */; };
+		2466ADB31FEAF06100699027 /* AppPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADB21FEAF06100699027 /* AppPageViewController.swift */; };
+		2466ADB51FEAF5AC00699027 /* UsernameTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADB41FEAF5AC00699027 /* UsernameTextFieldDelegate.swift */; };
+		2466ADB71FEAF65C00699027 /* PasswordTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADB61FEAF65C00699027 /* PasswordTextFieldDelegate.swift */; };
+		2466ADB91FEAF6B400699027 /* EmailTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADB81FEAF6B400699027 /* EmailTextFieldDelegate.swift */; };
+		2466ADBB1FEAF76200699027 /* AboutTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADBA1FEAF76200699027 /* AboutTableViewDataSource.swift */; };
+		2466ADBD1FEAF78700699027 /* AboutTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADBC1FEAF78700699027 /* AboutTableViewDelegate.swift */; };
+		2466ADBF1FEB05AE00699027 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2466ADBE1FEB05AE00699027 /* GoogleService-Info.plist */; };
+		2466ADC01FEB05AE00699027 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2466ADBE1FEB05AE00699027 /* GoogleService-Info.plist */; };
+		2466ADC11FEB05AE00699027 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2466ADBE1FEB05AE00699027 /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2466AD821FE99AAC00699027 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2466AD651FE99AAC00699027 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2466AD6C1FE99AAC00699027;
+			remoteInfo = "STEM goes RED";
+		};
+		2466AD8D1FE99AAC00699027 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2466AD651FE99AAC00699027 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2466AD6C1FE99AAC00699027;
+			remoteInfo = "STEM goes RED";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2466AD6D1FE99AAC00699027 /* STEM goes RED.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "STEM goes RED.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2466AD701FE99AAC00699027 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2466AD751FE99AAC00699027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2466AD771FE99AAC00699027 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2466AD7A1FE99AAC00699027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2466AD7C1FE99AAC00699027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2466AD811FE99AAC00699027 /* STEM goes REDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "STEM goes REDTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2466AD851FE99AAC00699027 /* STEM_goes_REDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STEM_goes_REDTests.swift; sourceTree = "<group>"; };
+		2466AD871FE99AAC00699027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2466AD8C1FE99AAC00699027 /* STEM goes REDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "STEM goes REDUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2466AD901FE99AAC00699027 /* STEM_goes_REDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STEM_goes_REDUITests.swift; sourceTree = "<group>"; };
+		2466AD921FE99AAC00699027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2466AD9E1FEAED5D00699027 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		2466ADA01FEAED6E00699027 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2466ADA21FEAED7B00699027 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		2466ADA41FEAED9300699027 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2466ADA61FEAEDA500699027 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		2466ADA81FEAEDC800699027 /* AboutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewCell.swift; sourceTree = "<group>"; };
+		2466ADAA1FEAEDD600699027 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		2466ADAC1FEAEDE300699027 /* AgendaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaTableViewCell.swift; sourceTree = "<group>"; };
+		2466ADAE1FEAEECD00699027 /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
+		2466ADB01FEAEF0200699027 /* StartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
+		2466ADB21FEAF06100699027 /* AppPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPageViewController.swift; sourceTree = "<group>"; };
+		2466ADB41FEAF5AC00699027 /* UsernameTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameTextFieldDelegate.swift; sourceTree = "<group>"; };
+		2466ADB61FEAF65C00699027 /* PasswordTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextFieldDelegate.swift; sourceTree = "<group>"; };
+		2466ADB81FEAF6B400699027 /* EmailTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextFieldDelegate.swift; sourceTree = "<group>"; };
+		2466ADBA1FEAF76200699027 /* AboutTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewDataSource.swift; sourceTree = "<group>"; };
+		2466ADBC1FEAF78700699027 /* AboutTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewDelegate.swift; sourceTree = "<group>"; };
+		2466ADBE1FEB05AE00699027 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2466AD6A1FE99AAC00699027 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2466AD7E1FE99AAC00699027 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2466AD891FE99AAC00699027 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2466AD641FE99AAC00699027 = {
+			isa = PBXGroup;
+			children = (
+				2466AD6F1FE99AAC00699027 /* STEM goes RED */,
+				2466AD841FE99AAC00699027 /* STEM goes REDTests */,
+				2466AD8F1FE99AAC00699027 /* STEM goes REDUITests */,
+				2466AD6E1FE99AAC00699027 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2466AD6E1FE99AAC00699027 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2466AD6D1FE99AAC00699027 /* STEM goes RED.app */,
+				2466AD811FE99AAC00699027 /* STEM goes REDTests.xctest */,
+				2466AD8C1FE99AAC00699027 /* STEM goes REDUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2466AD6F1FE99AAC00699027 /* STEM goes RED */ = {
+			isa = PBXGroup;
+			children = (
+				2466AD701FE99AAC00699027 /* AppDelegate.swift */,
+				2466AD741FE99AAC00699027 /* Main.storyboard */,
+				2466ADB21FEAF06100699027 /* AppPageViewController.swift */,
+				2466ADB01FEAEF0200699027 /* StartUpViewController.swift */,
+				2466ADAE1FEAEECD00699027 /* HeaderViewController.swift */,
+				2466AD9E1FEAED5D00699027 /* ContainerViewController.swift */,
+				2466ADA01FEAED6E00699027 /* LoginViewController.swift */,
+				2466ADA21FEAED7B00699027 /* SignUpViewController.swift */,
+				2466ADA41FEAED9300699027 /* HomeViewController.swift */,
+				2466ADA61FEAEDA500699027 /* AboutViewController.swift */,
+				2466ADA81FEAEDC800699027 /* AboutTableViewCell.swift */,
+				2466ADAA1FEAEDD600699027 /* LocationTableViewCell.swift */,
+				2466ADB41FEAF5AC00699027 /* UsernameTextFieldDelegate.swift */,
+				2466ADBE1FEB05AE00699027 /* GoogleService-Info.plist */,
+				2466ADB61FEAF65C00699027 /* PasswordTextFieldDelegate.swift */,
+				2466ADB81FEAF6B400699027 /* EmailTextFieldDelegate.swift */,
+				2466ADBA1FEAF76200699027 /* AboutTableViewDataSource.swift */,
+				2466ADBC1FEAF78700699027 /* AboutTableViewDelegate.swift */,
+				2466ADAC1FEAEDE300699027 /* AgendaTableViewCell.swift */,
+				2466AD771FE99AAC00699027 /* Assets.xcassets */,
+				2466AD791FE99AAC00699027 /* LaunchScreen.storyboard */,
+				2466AD7C1FE99AAC00699027 /* Info.plist */,
+			);
+			path = "STEM goes RED";
+			sourceTree = "<group>";
+		};
+		2466AD841FE99AAC00699027 /* STEM goes REDTests */ = {
+			isa = PBXGroup;
+			children = (
+				2466AD851FE99AAC00699027 /* STEM_goes_REDTests.swift */,
+				2466AD871FE99AAC00699027 /* Info.plist */,
+			);
+			path = "STEM goes REDTests";
+			sourceTree = "<group>";
+		};
+		2466AD8F1FE99AAC00699027 /* STEM goes REDUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2466AD901FE99AAC00699027 /* STEM_goes_REDUITests.swift */,
+				2466AD921FE99AAC00699027 /* Info.plist */,
+			);
+			path = "STEM goes REDUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2466AD6C1FE99AAC00699027 /* STEM goes RED */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2466AD951FE99AAD00699027 /* Build configuration list for PBXNativeTarget "STEM goes RED" */;
+			buildPhases = (
+				2466AD691FE99AAC00699027 /* Sources */,
+				2466AD6A1FE99AAC00699027 /* Frameworks */,
+				2466AD6B1FE99AAC00699027 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "STEM goes RED";
+			productName = "STEM goes RED";
+			productReference = 2466AD6D1FE99AAC00699027 /* STEM goes RED.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2466AD801FE99AAC00699027 /* STEM goes REDTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2466AD981FE99AAD00699027 /* Build configuration list for PBXNativeTarget "STEM goes REDTests" */;
+			buildPhases = (
+				2466AD7D1FE99AAC00699027 /* Sources */,
+				2466AD7E1FE99AAC00699027 /* Frameworks */,
+				2466AD7F1FE99AAC00699027 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2466AD831FE99AAC00699027 /* PBXTargetDependency */,
+			);
+			name = "STEM goes REDTests";
+			productName = "STEM goes REDTests";
+			productReference = 2466AD811FE99AAC00699027 /* STEM goes REDTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2466AD8B1FE99AAC00699027 /* STEM goes REDUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2466AD9B1FE99AAD00699027 /* Build configuration list for PBXNativeTarget "STEM goes REDUITests" */;
+			buildPhases = (
+				2466AD881FE99AAC00699027 /* Sources */,
+				2466AD891FE99AAC00699027 /* Frameworks */,
+				2466AD8A1FE99AAC00699027 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2466AD8E1FE99AAC00699027 /* PBXTargetDependency */,
+			);
+			name = "STEM goes REDUITests";
+			productName = "STEM goes REDUITests";
+			productReference = 2466AD8C1FE99AAC00699027 /* STEM goes REDUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2466AD651FE99AAC00699027 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Michael Fulton Jr.";
+				TargetAttributes = {
+					2466AD6C1FE99AAC00699027 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					2466AD801FE99AAC00699027 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2466AD6C1FE99AAC00699027;
+					};
+					2466AD8B1FE99AAC00699027 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2466AD6C1FE99AAC00699027;
+					};
+				};
+			};
+			buildConfigurationList = 2466AD681FE99AAC00699027 /* Build configuration list for PBXProject "STEM goes RED" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2466AD641FE99AAC00699027;
+			productRefGroup = 2466AD6E1FE99AAC00699027 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2466AD6C1FE99AAC00699027 /* STEM goes RED */,
+				2466AD801FE99AAC00699027 /* STEM goes REDTests */,
+				2466AD8B1FE99AAC00699027 /* STEM goes REDUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2466AD6B1FE99AAC00699027 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2466AD7B1FE99AAC00699027 /* LaunchScreen.storyboard in Resources */,
+				2466ADBF1FEB05AE00699027 /* GoogleService-Info.plist in Resources */,
+				2466AD781FE99AAC00699027 /* Assets.xcassets in Resources */,
+				2466AD761FE99AAC00699027 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2466AD7F1FE99AAC00699027 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2466ADC01FEB05AE00699027 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2466AD8A1FE99AAC00699027 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2466ADC11FEB05AE00699027 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2466AD691FE99AAC00699027 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2466ADA11FEAED6E00699027 /* LoginViewController.swift in Sources */,
+				2466ADA91FEAEDC800699027 /* AboutTableViewCell.swift in Sources */,
+				2466ADBB1FEAF76200699027 /* AboutTableViewDataSource.swift in Sources */,
+				2466ADBD1FEAF78700699027 /* AboutTableViewDelegate.swift in Sources */,
+				2466ADB51FEAF5AC00699027 /* UsernameTextFieldDelegate.swift in Sources */,
+				2466ADAB1FEAEDD600699027 /* LocationTableViewCell.swift in Sources */,
+				2466ADB91FEAF6B400699027 /* EmailTextFieldDelegate.swift in Sources */,
+				2466AD9F1FEAED5D00699027 /* ContainerViewController.swift in Sources */,
+				2466ADB11FEAEF0200699027 /* StartUpViewController.swift in Sources */,
+				2466ADA71FEAEDA500699027 /* AboutViewController.swift in Sources */,
+				2466ADB71FEAF65C00699027 /* PasswordTextFieldDelegate.swift in Sources */,
+				2466AD711FE99AAC00699027 /* AppDelegate.swift in Sources */,
+				2466ADB31FEAF06100699027 /* AppPageViewController.swift in Sources */,
+				2466ADA31FEAED7B00699027 /* SignUpViewController.swift in Sources */,
+				2466ADAF1FEAEECD00699027 /* HeaderViewController.swift in Sources */,
+				2466ADA51FEAED9300699027 /* HomeViewController.swift in Sources */,
+				2466ADAD1FEAEDE300699027 /* AgendaTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2466AD7D1FE99AAC00699027 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2466AD861FE99AAC00699027 /* STEM_goes_REDTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2466AD881FE99AAC00699027 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2466AD911FE99AAC00699027 /* STEM_goes_REDUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2466AD831FE99AAC00699027 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2466AD6C1FE99AAC00699027 /* STEM goes RED */;
+			targetProxy = 2466AD821FE99AAC00699027 /* PBXContainerItemProxy */;
+		};
+		2466AD8E1FE99AAC00699027 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2466AD6C1FE99AAC00699027 /* STEM goes RED */;
+			targetProxy = 2466AD8D1FE99AAC00699027 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2466AD741FE99AAC00699027 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2466AD751FE99AAC00699027 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2466AD791FE99AAC00699027 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2466AD7A1FE99AAC00699027 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2466AD931FE99AAC00699027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2466AD941FE99AAC00699027 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2466AD961FE99AAD00699027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RM253QV824;
+				INFOPLIST_FILE = "STEM goes RED/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "American-Heart-Association.STEM-goes-RED";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2466AD971FE99AAD00699027 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RM253QV824;
+				INFOPLIST_FILE = "STEM goes RED/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "American-Heart-Association.STEM-goes-RED";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		2466AD991FE99AAD00699027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RM253QV824;
+				INFOPLIST_FILE = "STEM goes REDTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "American-Heart-Association.STEM-goes-REDTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/STEM goes RED.app/STEM goes RED";
+			};
+			name = Debug;
+		};
+		2466AD9A1FE99AAD00699027 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RM253QV824;
+				INFOPLIST_FILE = "STEM goes REDTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "American-Heart-Association.STEM-goes-REDTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/STEM goes RED.app/STEM goes RED";
+			};
+			name = Release;
+		};
+		2466AD9C1FE99AAD00699027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RM253QV824;
+				INFOPLIST_FILE = "STEM goes REDUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "American-Heart-Association.STEM-goes-REDUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "STEM goes RED";
+			};
+			name = Debug;
+		};
+		2466AD9D1FE99AAD00699027 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RM253QV824;
+				INFOPLIST_FILE = "STEM goes REDUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "American-Heart-Association.STEM-goes-REDUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "STEM goes RED";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2466AD681FE99AAC00699027 /* Build configuration list for PBXProject "STEM goes RED" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2466AD931FE99AAC00699027 /* Debug */,
+				2466AD941FE99AAC00699027 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2466AD951FE99AAD00699027 /* Build configuration list for PBXNativeTarget "STEM goes RED" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2466AD961FE99AAD00699027 /* Debug */,
+				2466AD971FE99AAD00699027 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2466AD981FE99AAD00699027 /* Build configuration list for PBXNativeTarget "STEM goes REDTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2466AD991FE99AAD00699027 /* Debug */,
+				2466AD9A1FE99AAD00699027 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2466AD9B1FE99AAD00699027 /* Build configuration list for PBXNativeTarget "STEM goes REDUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2466AD9C1FE99AAD00699027 /* Debug */,
+				2466AD9D1FE99AAD00699027 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2466AD651FE99AAC00699027 /* Project object */;
+}
