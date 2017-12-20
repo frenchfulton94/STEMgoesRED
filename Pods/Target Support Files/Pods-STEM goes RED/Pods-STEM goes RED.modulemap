@@ -1,0 +1,6 @@
+framework module Pods_STEM_goes_RED {
+  umbrella header "Pods-STEM goes RED-umbrella.h"
+
+  export *
+  module * { export * }
+}

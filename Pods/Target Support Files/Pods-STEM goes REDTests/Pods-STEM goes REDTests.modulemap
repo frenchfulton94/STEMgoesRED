@@ -1,0 +1,6 @@
+framework module Pods_STEM_goes_REDTests {
+  umbrella header "Pods-STEM goes REDTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
