@@ -46,6 +46,8 @@ class StartUpViewController: UIViewController {
         guard let VC = viewController else {
             return
         }
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "newHome")
         pageViewController.dataSource = pageViewController
         let parent = pageViewController.parent!
 
@@ -59,12 +61,8 @@ class StartUpViewController: UIViewController {
                 parent.addChildViewController(infoVC)
                 parent.view.addSubview(infoView!)
             }
-           
-            
         }
-       
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
