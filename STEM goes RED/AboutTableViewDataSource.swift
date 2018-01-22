@@ -8,10 +8,8 @@
 
 import UIKit
 
-class AboutTableViewDataSource: NSObject, UITableViewDataSource {
-    typealias event = (String,String)
-    var sections: [String] = ["About", "Schedule"]
-    var schedule: [event] = []
+extension AboutViewController: UITableViewDataSource {
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }

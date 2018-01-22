@@ -7,34 +7,34 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>91878029847-sfa7k0pjdkqc6amvusetemguoed6vboc.apps.googleusercontent.com</string>
+	<string>1034693134357-8q7tpdero0se04qr0lpdj2klet3blhjt.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.91878029847-sfa7k0pjdkqc6amvusetemguoed6vboc</string>
+	<string>com.googleusercontent.apps.1034693134357-8q7tpdero0se04qr0lpdj2klet3blhjt</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDt05UmKh-Oj2WqxdvHja51xC-q82I-bA8</string>
+	<string>AIzaSyB2WIpfK-2esqdoUOu0MJaV0jETLhl17OM</string>
 	<key>GCM_SENDER_ID</key>
-	<string>91878029847</string>
+	<string>1034693134357</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>American-Heart-Association.STEM-goes-RED</string>
 	<key>PROJECT_ID</key>
-	<string>stem-goes-red</string>
+	<string>stemgoesredv2</string>
 	<key>STORAGE_BUCKET</key>
-	<string>stem-goes-red.appspot.com</string>
+	<string>stemgoesredv2.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:91878029847:ios:a07fba6eb83102de</string>
+	<string>1:1034693134357:ios:a07fba6eb83102de</string>
 	<key>DATABASE_URL</key>
-	<string>https://stem-goes-red.firebaseio.com</string>
+	<string>https://stemgoesredv2.firebaseio.com</string>
 </dict>
 </plist>

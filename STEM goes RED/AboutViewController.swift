@@ -13,16 +13,16 @@ class AboutViewController: UIViewController {
     @IBOutlet weak var eventInformationLabel: UIBarButtonItem!
     @IBOutlet weak var aboutTableView: UITableView!
     
+    @IBAction func pull(_ sender: UIPanGestureRecognizer) {
+    }
+    typealias event = (String,String)
+    var sections: [String] = ["About", "Schedule"]
+    var schedule: [event] = []
+    
     @IBAction func toggleView(_ sender: UIBarButtonItem) {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let tableViewDataSource = AboutTableViewDataSource()
-        aboutTableView.dataSource = tableViewDataSource
-        let tableViewDelegate = AboutTableViewDelegate()
-        aboutTableView.delegate = tableViewDelegate
-    
 
         // Do any additional setup after loading the view.
     }

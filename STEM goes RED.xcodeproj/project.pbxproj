@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		243E54B11FEB27A70019E2FB /* AppPageViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E54B01FEB27A70019E2FB /* AppPageViewControllerDataSource.swift */; };
+		243E54B31FEB27BF0019E2FB /* AppPageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E54B21FEB27BF0019E2FB /* AppPageViewControllerDelegate.swift */; };
 		2466AD711FE99AAC00699027 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466AD701FE99AAC00699027 /* AppDelegate.swift */; };
 		2466AD761FE99AAC00699027 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2466AD741FE99AAC00699027 /* Main.storyboard */; };
 		2466AD781FE99AAC00699027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2466AD771FE99AAC00699027 /* Assets.xcassets */; };
@@ -16,7 +18,7 @@
 		2466AD9F1FEAED5D00699027 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466AD9E1FEAED5D00699027 /* ContainerViewController.swift */; };
 		2466ADA11FEAED6E00699027 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADA01FEAED6E00699027 /* LoginViewController.swift */; };
 		2466ADA31FEAED7B00699027 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADA21FEAED7B00699027 /* SignUpViewController.swift */; };
-		2466ADA51FEAED9300699027 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADA41FEAED9300699027 /* HomeViewController.swift */; };
+		2466ADA51FEAED9300699027 /* TriviaCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADA41FEAED9300699027 /* TriviaCardViewController.swift */; };
 		2466ADA71FEAEDA500699027 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADA61FEAEDA500699027 /* AboutViewController.swift */; };
 		2466ADA91FEAEDC800699027 /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADA81FEAEDC800699027 /* AboutTableViewCell.swift */; };
 		2466ADAB1FEAEDD600699027 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADAA1FEAEDD600699027 /* LocationTableViewCell.swift */; };
@@ -24,14 +26,17 @@
 		2466ADAF1FEAEECD00699027 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADAE1FEAEECD00699027 /* HeaderViewController.swift */; };
 		2466ADB11FEAEF0200699027 /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADB01FEAEF0200699027 /* StartUpViewController.swift */; };
 		2466ADB31FEAF06100699027 /* AppPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADB21FEAF06100699027 /* AppPageViewController.swift */; };
-		2466ADB51FEAF5AC00699027 /* UsernameTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADB41FEAF5AC00699027 /* UsernameTextFieldDelegate.swift */; };
-		2466ADB71FEAF65C00699027 /* PasswordTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADB61FEAF65C00699027 /* PasswordTextFieldDelegate.swift */; };
-		2466ADB91FEAF6B400699027 /* EmailTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADB81FEAF6B400699027 /* EmailTextFieldDelegate.swift */; };
+		2466ADB51FEAF5AC00699027 /* SignUpUsernameTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADB41FEAF5AC00699027 /* SignUpUsernameTextFieldDelegate.swift */; };
+		2466ADB71FEAF65C00699027 /* SignUpPasswordTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADB61FEAF65C00699027 /* SignUpPasswordTextFieldDelegate.swift */; };
+		2466ADB91FEAF6B400699027 /* SIgnUpEmailTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADB81FEAF6B400699027 /* SIgnUpEmailTextFieldDelegate.swift */; };
 		2466ADBB1FEAF76200699027 /* AboutTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADBA1FEAF76200699027 /* AboutTableViewDataSource.swift */; };
 		2466ADBD1FEAF78700699027 /* AboutTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466ADBC1FEAF78700699027 /* AboutTableViewDelegate.swift */; };
-		2466ADBF1FEB05AE00699027 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2466ADBE1FEB05AE00699027 /* GoogleService-Info.plist */; };
-		2466ADC01FEB05AE00699027 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2466ADBE1FEB05AE00699027 /* GoogleService-Info.plist */; };
-		2466ADC11FEB05AE00699027 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2466ADBE1FEB05AE00699027 /* GoogleService-Info.plist */; };
+		2483CF01200EB94B0092B41E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483CF00200EB94B0092B41E /* Models.swift */; };
+		2483CF0320113DBC0092B41E /* SignUpRetypePasswordTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483CF0220113DBC0092B41E /* SignUpRetypePasswordTextFieldDelegate.swift */; };
+		2483CF0520120DC80092B41E /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483CF0420120DC80092B41E /* GeneralExtensions.swift */; };
+		2483CF07201221000092B41E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2483CF06201221000092B41E /* GoogleService-Info.plist */; };
+		2483CF0920124EFF0092B41E /* iDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483CF0820124EFF0092B41E /* iDiscoverViewController.swift */; };
+		24CC8C1720054E35004EF55E /* ValidationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CC8C1620054E35004EF55E /* ValidationHandler.swift */; };
 		3B6E922B23C2FD2016F2EC1D /* Pods_STEM_goes_RED.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3D6B25EE841E3E3D4C6ADE /* Pods_STEM_goes_RED.framework */; };
 		5BEED12CC541ADAA8C540A02 /* Pods_STEM_goes_REDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11769EA66BD29FBB9C36186B /* Pods_STEM_goes_REDTests.framework */; };
 		785ABBF717D0A584734D83B0 /* Pods_STEM_goes_REDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F7A9B5DA018A56BA394059 /* Pods_STEM_goes_REDUITests.framework */; };
@@ -60,6 +65,8 @@
 		05CF4C18DE9708CBC4F977DB /* Pods-STEM goes REDUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STEM goes REDUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-STEM goes REDUITests/Pods-STEM goes REDUITests.release.xcconfig"; sourceTree = "<group>"; };
 		11769EA66BD29FBB9C36186B /* Pods_STEM_goes_REDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_STEM_goes_REDTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		182A00FD1E7FB5FD0EB229BA /* Pods-STEM goes RED.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STEM goes RED.debug.xcconfig"; path = "Pods/Target Support Files/Pods-STEM goes RED/Pods-STEM goes RED.debug.xcconfig"; sourceTree = "<group>"; };
+		243E54B01FEB27A70019E2FB /* AppPageViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPageViewControllerDataSource.swift; sourceTree = "<group>"; };
+		243E54B21FEB27BF0019E2FB /* AppPageViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPageViewControllerDelegate.swift; sourceTree = "<group>"; };
 		2466AD6D1FE99AAC00699027 /* STEM goes RED.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "STEM goes RED.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2466AD701FE99AAC00699027 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2466AD751FE99AAC00699027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,7 +82,7 @@
 		2466AD9E1FEAED5D00699027 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		2466ADA01FEAED6E00699027 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2466ADA21FEAED7B00699027 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		2466ADA41FEAED9300699027 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2466ADA41FEAED9300699027 /* TriviaCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaCardViewController.swift; sourceTree = "<group>"; };
 		2466ADA61FEAEDA500699027 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		2466ADA81FEAEDC800699027 /* AboutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewCell.swift; sourceTree = "<group>"; };
 		2466ADAA1FEAEDD600699027 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
@@ -83,12 +90,17 @@
 		2466ADAE1FEAEECD00699027 /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		2466ADB01FEAEF0200699027 /* StartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
 		2466ADB21FEAF06100699027 /* AppPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPageViewController.swift; sourceTree = "<group>"; };
-		2466ADB41FEAF5AC00699027 /* UsernameTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameTextFieldDelegate.swift; sourceTree = "<group>"; };
-		2466ADB61FEAF65C00699027 /* PasswordTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextFieldDelegate.swift; sourceTree = "<group>"; };
-		2466ADB81FEAF6B400699027 /* EmailTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextFieldDelegate.swift; sourceTree = "<group>"; };
+		2466ADB41FEAF5AC00699027 /* SignUpUsernameTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUsernameTextFieldDelegate.swift; sourceTree = "<group>"; };
+		2466ADB61FEAF65C00699027 /* SignUpPasswordTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPasswordTextFieldDelegate.swift; sourceTree = "<group>"; };
+		2466ADB81FEAF6B400699027 /* SIgnUpEmailTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnUpEmailTextFieldDelegate.swift; sourceTree = "<group>"; };
 		2466ADBA1FEAF76200699027 /* AboutTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewDataSource.swift; sourceTree = "<group>"; };
 		2466ADBC1FEAF78700699027 /* AboutTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewDelegate.swift; sourceTree = "<group>"; };
-		2466ADBE1FEB05AE00699027 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2483CF00200EB94B0092B41E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		2483CF0220113DBC0092B41E /* SignUpRetypePasswordTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRetypePasswordTextFieldDelegate.swift; sourceTree = "<group>"; };
+		2483CF0420120DC80092B41E /* GeneralExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExtensions.swift; sourceTree = "<group>"; };
+		2483CF06201221000092B41E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2483CF0820124EFF0092B41E /* iDiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iDiscoverViewController.swift; sourceTree = "<group>"; };
+		24CC8C1620054E35004EF55E /* ValidationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHandler.swift; sourceTree = "<group>"; };
 		4F3D6B25EE841E3E3D4C6ADE /* Pods_STEM_goes_RED.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_STEM_goes_RED.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D64961AF9BBCADEC850CD12 /* Pods-STEM goes REDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STEM goes REDTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-STEM goes REDTests/Pods-STEM goes REDTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7F1D5B299FB31C9714949AA2 /* Pods-STEM goes RED.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STEM goes RED.release.xcconfig"; path = "Pods/Target Support Files/Pods-STEM goes RED/Pods-STEM goes RED.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,20 +162,27 @@
 			children = (
 				2466AD701FE99AAC00699027 /* AppDelegate.swift */,
 				2466AD741FE99AAC00699027 /* Main.storyboard */,
+				2483CF0820124EFF0092B41E /* iDiscoverViewController.swift */,
+				2483CF0420120DC80092B41E /* GeneralExtensions.swift */,
+				2483CF0220113DBC0092B41E /* SignUpRetypePasswordTextFieldDelegate.swift */,
 				2466ADB21FEAF06100699027 /* AppPageViewController.swift */,
+				243E54B01FEB27A70019E2FB /* AppPageViewControllerDataSource.swift */,
+				243E54B21FEB27BF0019E2FB /* AppPageViewControllerDelegate.swift */,
 				2466ADB01FEAEF0200699027 /* StartUpViewController.swift */,
 				2466ADAE1FEAEECD00699027 /* HeaderViewController.swift */,
 				2466AD9E1FEAED5D00699027 /* ContainerViewController.swift */,
 				2466ADA01FEAED6E00699027 /* LoginViewController.swift */,
 				2466ADA21FEAED7B00699027 /* SignUpViewController.swift */,
-				2466ADA41FEAED9300699027 /* HomeViewController.swift */,
+				24CC8C1620054E35004EF55E /* ValidationHandler.swift */,
+				2466ADA41FEAED9300699027 /* TriviaCardViewController.swift */,
 				2466ADA61FEAEDA500699027 /* AboutViewController.swift */,
 				2466ADA81FEAEDC800699027 /* AboutTableViewCell.swift */,
 				2466ADAA1FEAEDD600699027 /* LocationTableViewCell.swift */,
-				2466ADB41FEAF5AC00699027 /* UsernameTextFieldDelegate.swift */,
-				2466ADBE1FEB05AE00699027 /* GoogleService-Info.plist */,
-				2466ADB61FEAF65C00699027 /* PasswordTextFieldDelegate.swift */,
-				2466ADB81FEAF6B400699027 /* EmailTextFieldDelegate.swift */,
+				2466ADB41FEAF5AC00699027 /* SignUpUsernameTextFieldDelegate.swift */,
+				2466ADB61FEAF65C00699027 /* SignUpPasswordTextFieldDelegate.swift */,
+				2483CF06201221000092B41E /* GoogleService-Info.plist */,
+				2483CF00200EB94B0092B41E /* Models.swift */,
+				2466ADB81FEAF6B400699027 /* SIgnUpEmailTextFieldDelegate.swift */,
 				2466ADBA1FEAF76200699027 /* AboutTableViewDataSource.swift */,
 				2466ADBC1FEAF78700699027 /* AboutTableViewDelegate.swift */,
 				2466ADAC1FEAEDE300699027 /* AgendaTableViewCell.swift */,
@@ -332,8 +351,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2466AD7B1FE99AAC00699027 /* LaunchScreen.storyboard in Resources */,
-				2466ADBF1FEB05AE00699027 /* GoogleService-Info.plist in Resources */,
 				2466AD781FE99AAC00699027 /* Assets.xcassets in Resources */,
+				2483CF07201221000092B41E /* GoogleService-Info.plist in Resources */,
 				2466AD761FE99AAC00699027 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,7 +361,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2466ADC01FEB05AE00699027 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +368,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2466ADC11FEB05AE00699027 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,11 +429,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-STEM goes RED/Pods-STEM goes RED-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -517,18 +536,25 @@
 				2466ADA91FEAEDC800699027 /* AboutTableViewCell.swift in Sources */,
 				2466ADBB1FEAF76200699027 /* AboutTableViewDataSource.swift in Sources */,
 				2466ADBD1FEAF78700699027 /* AboutTableViewDelegate.swift in Sources */,
-				2466ADB51FEAF5AC00699027 /* UsernameTextFieldDelegate.swift in Sources */,
+				2483CF0520120DC80092B41E /* GeneralExtensions.swift in Sources */,
+				2466ADB51FEAF5AC00699027 /* SignUpUsernameTextFieldDelegate.swift in Sources */,
 				2466ADAB1FEAEDD600699027 /* LocationTableViewCell.swift in Sources */,
-				2466ADB91FEAF6B400699027 /* EmailTextFieldDelegate.swift in Sources */,
+				2483CF01200EB94B0092B41E /* Models.swift in Sources */,
+				2466ADB91FEAF6B400699027 /* SIgnUpEmailTextFieldDelegate.swift in Sources */,
+				24CC8C1720054E35004EF55E /* ValidationHandler.swift in Sources */,
 				2466AD9F1FEAED5D00699027 /* ContainerViewController.swift in Sources */,
 				2466ADB11FEAEF0200699027 /* StartUpViewController.swift in Sources */,
 				2466ADA71FEAEDA500699027 /* AboutViewController.swift in Sources */,
-				2466ADB71FEAF65C00699027 /* PasswordTextFieldDelegate.swift in Sources */,
+				243E54B11FEB27A70019E2FB /* AppPageViewControllerDataSource.swift in Sources */,
+				2466ADB71FEAF65C00699027 /* SignUpPasswordTextFieldDelegate.swift in Sources */,
+				2483CF0920124EFF0092B41E /* iDiscoverViewController.swift in Sources */,
+				2483CF0320113DBC0092B41E /* SignUpRetypePasswordTextFieldDelegate.swift in Sources */,
 				2466AD711FE99AAC00699027 /* AppDelegate.swift in Sources */,
 				2466ADB31FEAF06100699027 /* AppPageViewController.swift in Sources */,
 				2466ADA31FEAED7B00699027 /* SignUpViewController.swift in Sources */,
 				2466ADAF1FEAEECD00699027 /* HeaderViewController.swift in Sources */,
-				2466ADA51FEAED9300699027 /* HomeViewController.swift in Sources */,
+				2466ADA51FEAED9300699027 /* TriviaCardViewController.swift in Sources */,
+				243E54B31FEB27BF0019E2FB /* AppPageViewControllerDelegate.swift in Sources */,
 				2466ADAD1FEAEDE300699027 /* AgendaTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

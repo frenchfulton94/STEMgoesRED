@@ -8,6 +8,6 @@
 
 import UIKit
 
-class AboutTableViewDelegate:NSObject, UITableViewDelegate {
-
+extension AboutViewController: UITableViewDelegate {
+    
 }

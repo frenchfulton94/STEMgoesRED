@@ -7,12 +7,34 @@
 //
 
 import UIKit
+import Firebase
 
 class ContainerViewController: UIViewController {
 
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var sectionLabel: UILabel!
+    
+    var handle: AuthStateDidChangeListenerHandle?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        handle = Auth.auth().addStateDidChangeListener {
+            (auth, user) in
+            
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let pageController = storyboard.instantiateViewController(withIdentifier: "AppPageController") as! AppPageViewController
+       
+        addChildViewController(pageController)
+        let pageControllerView = pageController.view!
+        pageControllerView.frame.size.height = view.frame.height
+        pageControllerView.frame.size.width = view.frame.width
+        pageControllerView.frame.origin.x = 0
+        pageControllerView.frame.origin.y = 0
+        view.addSubview(pageControllerView)
+        
         // Do any additional setup after loading the view.
     }
 

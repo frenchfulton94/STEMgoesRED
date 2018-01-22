@@ -9,27 +9,56 @@
 import UIKit
 
 class AppPageViewController: UIPageViewController {
-
+    lazy var initialControllers: [UIViewController] = {
+        return [newViewController(id: "startUp"), newViewController(id: "login"), newViewController(id: "signUp")]
+    }()
+    let defaults = UserDefaults.standard
+    
+    lazy var mainControllers: [UIViewController] = {
+        return [newViewController(id: "TriviaCard"), newViewController(id: "iDiscoverCard")]
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if defaults.bool(forKey: "newHome") {
+            guard let firstViewController = mainControllers.first else {
+                return
+            }
+            dataSource = self
+            setViewControllers([firstViewController], direction: .forward, animated: true){
+                animationFinished in
+                
+            }
+        } else {
+            guard let firstViewController = initialControllers.first else {
+                return
+            }
+            (firstViewController as! StartUpViewController).pageViewController = self
+            setViewControllers([firstViewController], direction: .forward, animated: true){
+                animationFinished in
+                
+            }
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func newViewController(id: String) -> UIViewController {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: id)
     }
-    */
-
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
