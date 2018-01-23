@@ -36,6 +36,10 @@
 		2483CF0520120DC80092B41E /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483CF0420120DC80092B41E /* GeneralExtensions.swift */; };
 		2483CF07201221000092B41E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2483CF06201221000092B41E /* GoogleService-Info.plist */; };
 		2483CF0920124EFF0092B41E /* iDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483CF0820124EFF0092B41E /* iDiscoverViewController.swift */; };
+		2483CF0B2016D2430092B41E /* AboutTouchGestureExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483CF0A2016D2430092B41E /* AboutTouchGestureExtension.swift */; };
+		2483CF0F2017B1BD0092B41E /* leaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483CF0E2017B1BD0092B41E /* leaderboardViewController.swift */; };
+		2483CF112017B1E70092B41E /* leaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483CF102017B1E70092B41E /* leaderboardTableViewCell.swift */; };
+		2483CF132017BD3D0092B41E /* leadboardTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483CF122017BD3D0092B41E /* leadboardTableViewDelegate.swift */; };
 		24CC8C1720054E35004EF55E /* ValidationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CC8C1620054E35004EF55E /* ValidationHandler.swift */; };
 		3B6E922B23C2FD2016F2EC1D /* Pods_STEM_goes_RED.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3D6B25EE841E3E3D4C6ADE /* Pods_STEM_goes_RED.framework */; };
 		5BEED12CC541ADAA8C540A02 /* Pods_STEM_goes_REDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11769EA66BD29FBB9C36186B /* Pods_STEM_goes_REDTests.framework */; };
@@ -100,6 +104,10 @@
 		2483CF0420120DC80092B41E /* GeneralExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExtensions.swift; sourceTree = "<group>"; };
 		2483CF06201221000092B41E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2483CF0820124EFF0092B41E /* iDiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iDiscoverViewController.swift; sourceTree = "<group>"; };
+		2483CF0A2016D2430092B41E /* AboutTouchGestureExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTouchGestureExtension.swift; sourceTree = "<group>"; };
+		2483CF0E2017B1BD0092B41E /* leaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leaderboardViewController.swift; sourceTree = "<group>"; };
+		2483CF102017B1E70092B41E /* leaderboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = leaderboardTableViewCell.swift; path = "/Users/michaelfultonjr./Documents/STEM goes RED/STEM goes RED/leaderboardTableViewCell.swift"; sourceTree = "<absolute>"; };
+		2483CF122017BD3D0092B41E /* leadboardTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leadboardTableViewDelegate.swift; sourceTree = "<group>"; };
 		24CC8C1620054E35004EF55E /* ValidationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHandler.swift; sourceTree = "<group>"; };
 		4F3D6B25EE841E3E3D4C6ADE /* Pods_STEM_goes_RED.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_STEM_goes_RED.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D64961AF9BBCADEC850CD12 /* Pods-STEM goes REDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STEM goes REDTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-STEM goes REDTests/Pods-STEM goes REDTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -160,8 +168,12 @@
 		2466AD6F1FE99AAC00699027 /* STEM goes RED */ = {
 			isa = PBXGroup;
 			children = (
+				2483CF102017B1E70092B41E /* leaderboardTableViewCell.swift */,
 				2466AD701FE99AAC00699027 /* AppDelegate.swift */,
 				2466AD741FE99AAC00699027 /* Main.storyboard */,
+				2483CF122017BD3D0092B41E /* leadboardTableViewDelegate.swift */,
+				2483CF0E2017B1BD0092B41E /* leaderboardViewController.swift */,
+				2483CF0A2016D2430092B41E /* AboutTouchGestureExtension.swift */,
 				2483CF0820124EFF0092B41E /* iDiscoverViewController.swift */,
 				2483CF0420120DC80092B41E /* GeneralExtensions.swift */,
 				2483CF0220113DBC0092B41E /* SignUpRetypePasswordTextFieldDelegate.swift */,
@@ -540,7 +552,9 @@
 				2466ADB51FEAF5AC00699027 /* SignUpUsernameTextFieldDelegate.swift in Sources */,
 				2466ADAB1FEAEDD600699027 /* LocationTableViewCell.swift in Sources */,
 				2483CF01200EB94B0092B41E /* Models.swift in Sources */,
+				2483CF0B2016D2430092B41E /* AboutTouchGestureExtension.swift in Sources */,
 				2466ADB91FEAF6B400699027 /* SIgnUpEmailTextFieldDelegate.swift in Sources */,
+				2483CF132017BD3D0092B41E /* leadboardTableViewDelegate.swift in Sources */,
 				24CC8C1720054E35004EF55E /* ValidationHandler.swift in Sources */,
 				2466AD9F1FEAED5D00699027 /* ContainerViewController.swift in Sources */,
 				2466ADB11FEAEF0200699027 /* StartUpViewController.swift in Sources */,
@@ -550,12 +564,14 @@
 				2483CF0920124EFF0092B41E /* iDiscoverViewController.swift in Sources */,
 				2483CF0320113DBC0092B41E /* SignUpRetypePasswordTextFieldDelegate.swift in Sources */,
 				2466AD711FE99AAC00699027 /* AppDelegate.swift in Sources */,
+				2483CF0F2017B1BD0092B41E /* leaderboardViewController.swift in Sources */,
 				2466ADB31FEAF06100699027 /* AppPageViewController.swift in Sources */,
 				2466ADA31FEAED7B00699027 /* SignUpViewController.swift in Sources */,
 				2466ADAF1FEAEECD00699027 /* HeaderViewController.swift in Sources */,
 				2466ADA51FEAED9300699027 /* TriviaCardViewController.swift in Sources */,
 				243E54B31FEB27BF0019E2FB /* AppPageViewControllerDelegate.swift in Sources */,
 				2466ADAD1FEAEDE300699027 /* AgendaTableViewCell.swift in Sources */,
+				2483CF112017B1E70092B41E /* leaderboardTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

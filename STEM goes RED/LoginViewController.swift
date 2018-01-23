@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var toolBar: UIToolbar!
@@ -21,17 +23,17 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         updateLabel()
     }
+    
+    @IBAction func login(_ sender: UIButton) {
+        let credentials: Credentials = (usernameTextField.text!, passwordTextField.text!)
+        loginWithCred(credentials: credentials)
+    }
+    
     var validationStatus: [String:ValidationResponse] = ["Username" : .None, "Password" : .None]
     weak var pageViewController: AppPageViewController!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let usernameDelegate = UsernameTextFieldDelegate(self, with: .Login)
-//        usernameTextField.delegate = usernameDelegate
-//        
-//        let passwordDelegate = PasswordTextFieldDelegate(self)
-//        passwordTextField.delegate = passwordDelegate
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +41,24 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func login(){
+    func loginWithCred(credentials: Credentials){
+        Auth.auth().signIn(withEmail:credentials.0 , password: credentials.1) {
+         [weak self]   user, error in
+            guard let VC = self else {
+                return
+            }
+            
+            guard let errorMessage = error else {
+                
+                let viewController = VC.pageViewController.mainControllers.first!
+                UserDefaults.standard.set(true, forKey: "newHome")
+                VC.pageViewController.setViewControllers([viewController], direction: .forward, animated:true , completion: nil)
+                return
+            }
+          VC.handleError(error: errorMessage)
+            
+            
+        }
         
     }
     
@@ -49,6 +68,22 @@ class LoginViewController: UIViewController {
     
     func updateLabel(){
         (pageViewController.parent as! ContainerViewController).sectionLabel.text = "Login"
+    }
+    
+    func handleError(error: Error){
+        let title = (error._userInfo!["error_name"] as! String).replacingOccurrences(of: "_", with: " ").replacingOccurrences(of: "ERROR ", with: "")
+        let message = error.localizedDescription
+        
+        let activity = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alert = UIAlertAction(title: "Okay", style: .default){
+          [weak self]  _ in
+            guard let VC = self else {
+                return
+            }
+        }
+        
+        activity.addAction(alert)
+        present(activity, animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation

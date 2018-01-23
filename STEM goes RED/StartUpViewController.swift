@@ -49,18 +49,14 @@ class StartUpViewController: UIViewController {
         let defaults = UserDefaults.standard
         defaults.set(true, forKey: "newHome")
         pageViewController.dataSource = pageViewController
-        let parent = pageViewController.parent!
+        weak var parent = pageViewController.parent as? ContainerViewController
 
-        print(parent.view.subviews)
         pageViewController.setViewControllers([VC], direction: .forward, animated: true){ _ in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let infoVC = storyboard.instantiateViewController(withIdentifier: "infoVC") as! AboutViewController
-            let infoView = infoVC.view
-            infoView!.frame = CGRect(x: 0, y: parent.view.frame.height - 44, width: parent.view.frame.width, height:parent.view.frame.height - 44 )
-            DispatchQueue.main.async {
-                parent.addChildViewController(infoVC)
-                parent.view.addSubview(infoView!)
+            guard let container = parent else {
+                return
             }
+          container.loadAbout()
+            
         }
     }
     

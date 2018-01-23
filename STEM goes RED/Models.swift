@@ -9,14 +9,12 @@
 import Foundation
 import UIKit
 
-struct User {
-//    init(){
-//
-//    }
+
+
+struct Player {
     var userID: String
     var userName: String
-    var email: String
-    var image: UIImage?
+    var score: Int
 }
 
 struct Event {

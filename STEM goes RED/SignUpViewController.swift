@@ -31,6 +31,7 @@ class SignUpViewController: UIViewController {
     
     @IBAction func SignUp(_ sender: UIButton) {
         guard preValidate() == .Valid else {
+            
             return
         }
         signUp()
@@ -78,9 +79,10 @@ class SignUpViewController: UIViewController {
     func signUp() {
         let email: Email = emailTextField.text!
         let password: Password = passwordTextField.text!
+        let credentials: Credentials = (email, password)
         var handler: ((UIAlertAction)->())?
-
-        Auth.auth().createUser(withEmail: email  , password: password) { [weak self] (user, error) in
+        
+        Auth.auth().createUser(withEmail: credentials.0  , password: credentials.1) { [weak self] (user, error) in
             // ...
             guard let VC = self else {
                 return
@@ -88,72 +90,33 @@ class SignUpViewController: UIViewController {
             
             guard let errorMessage = error else {
                 print("success")
-                let defaults = UserDefaults.standard
-                defaults.set(true, forKey: "newHome")
-                let viewController = VC.pageViewController.mainControllers.first! as! TriviaCardViewController
-                VC.pageViewController.dataSource = VC.pageViewController
-                  let parent = VC.pageViewController.parent!
-                VC.pageViewController.setViewControllers([viewController], direction: .forward, animated: true, completion: {
-                    _ in
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let infoVC = storyboard.instantiateViewController(withIdentifier: "infoVC") as! AboutViewController
-                    let infoView = infoVC.view
-                    infoView!.frame = CGRect(x: 0, y: parent.view.frame.height - 44, width: parent.view.frame.width, height:parent.view.frame.height - 44 )
-                    DispatchQueue.main.async {
-                        parent.addChildViewController(infoVC)
-                        parent.view.addSubview(infoView!)
-                    }
-                    
-                })
+                
+                let completion = {
+                    let defaults = UserDefaults.standard
+                    defaults.set(true, forKey: "newHome")
+                    let viewController = VC.pageViewController.mainControllers.first! as! TriviaCardViewController
+                    VC.pageViewController.dataSource = VC.pageViewController
+                    weak var parent = VC.pageViewController.parent as? ContainerViewController
+                    VC.pageViewController.setViewControllers([viewController], direction: .forward, animated: true, completion: {
+                        _ in
+                        guard let container = parent else {
+                            return
+                        }
+                        
+                        container.loadAbout()
+                        
+                    })
+                }
+                VC.signIn(credentials: credentials, completion: completion)
+               
                 
                 return
             }
-            let errorName = errorMessage._userInfo!["error_name"] as! String
-            let title = errorName.replacingOccurrences(of: "_", with: " ").replacingOccurrences(of: "ERROR ", with: "")
-            let message = errorMessage.localizedDescription
-          
-           
-            print(errorMessage)
-            switch errorName {
-            case "ERROR_NETWORK_ERROR":
-               
-                break
-                
-            case "ERROR_INTERNAL_ERROR":
-                break
-                
-            case "ERROR_INVALID_EMAIL":
-                handler = {
-                    _ in
-                    VC.emailTextField.becomeFirstResponder()
-                }
-                break
-            case "ERROR_EMAIL_ALREADY_IN_USE":
-                handler = {
-                    _ in
-                    VC.emailTextField.becomeFirstResponder()
-                }
-                break
-            case "ERROR_WEAK_PASSWORD":
-                handler = {
-                    _ in
-                    VC.passwordTextField.text = ""
-                    VC.passwordTextField.becomeFirstResponder()
-                }
-                
-            default:
-                    break
-            }
             
-             VC.showErrorMessage(title: title , message: message, handler: handler)
-            
+            VC.handleSignUpErrors(errorMessage: errorMessage)
         }
-        
     }
-    
-    
-    
-    
+
     private func sendEmailVerification(credentials: Credentials) {
         Auth.auth().currentUser?.sendEmailVerification { (error) in
             guard let errorMessage = error else {
@@ -163,11 +126,32 @@ class SignUpViewController: UIViewController {
             
             print(errorMessage)
         }
-        
     }
     
-    func signIn(credentials: Credentials){
+    func signIn(credentials: Credentials, completion: (()->())?){
         
+        Auth.auth().signIn(withEmail: credentials.0 , password: credentials.1) {
+            [weak self] user, error in
+            
+            guard let VC = self else {
+                
+                return
+            }
+            guard let errorMessage = error else {
+                completion?()
+                return
+            }
+            let title = (errorMessage._userInfo!["error_name"] as! String).replacingOccurrences(of: "_", with: "").replacingOccurrences(of: "ERROR ", with: "")
+            let message = errorMessage.localizedDescription
+            var handler:((UIAlertAction)->()) = {
+                _ in
+                let viewController = VC.pageViewController.initialControllers[1] as! LoginViewController
+                viewController.pageViewController = VC.pageViewController
+                VC.pageViewController.setViewControllers([viewController], direction: .reverse, animated: true, completion: nil)
+                
+            }
+            VC.showErrorMessage(title: title, message: message, handler: handler)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -196,7 +180,7 @@ class SignUpViewController: UIViewController {
     func validate() -> Bool {
         return Set(validationStatus.values) == Set([ValidationResponse.Valid])
     }
-
+    
     func goBack(){
         pageViewController.setViewControllers([pageViewController.initialControllers.first!], direction: .reverse, animated: true, completion: nil)
     }
@@ -220,14 +204,74 @@ class SignUpViewController: UIViewController {
         return .Valid
     }
     
-    func preValidate() -> ValidationResponse {
-          var handler: ((UIAlertAction)->())?
+    func handleSignUpErrors(errorMessage: Error){
+        let errorName = errorMessage._userInfo!["error_name"] as! String
+        let title = errorName.replacingOccurrences(of: "_", with: " ").replacingOccurrences(of: "ERROR ", with: "")
+        let message = errorMessage.localizedDescription
+        var handler: ((UIAlertAction)->())?
         
-        guard let email = emailTextField.text else {
-            return .Invalid
+        print(errorMessage)
+        switch errorName {
+        case "ERROR_NETWORK_ERROR":
+            
+            break
+            
+        case "ERROR_INTERNAL_ERROR":
+            break
+            
+        case "ERROR_INVALID_EMAIL":
+            handler = {
+                _ in
+                self.emailTextField.becomeFirstResponder()
+            }
+            break
+        case "ERROR_EMAIL_ALREADY_IN_USE":
+            handler = {
+                _ in
+                self.emailTextField.becomeFirstResponder()
+            }
+            break
+        case "ERROR_WEAK_PASSWORD":
+            handler = {
+                _ in
+                self.passwordTextField.text = ""
+                self.passwordTextField.becomeFirstResponder()
+            }
+            
+        default:
+            break
         }
         
-        guard let username = usernameTextField.text else {
+        showErrorMessage(title: title , message: message, handler: handler)
+        
+    }
+    
+    func preValidate() -> ValidationResponse {
+        var handler: ((UIAlertAction)->())?
+        
+        guard emailTextField.text! != "" else {
+            handler = {
+                [weak self] _ in
+                guard let VC = self else {
+                    return
+                }
+                VC.emailTextField.becomeFirstResponder()
+            }
+            showErrorMessage(title: "FIELD IS EMPTY", message: "Email field cannot be empty.", handler: handler )
+            
+            return .Invalid
+        }
+        let username = usernameTextField.text!
+        guard username != "" else {
+            handler = {
+                [weak self] _ in
+                guard let VC = self else {
+                    return
+                }
+                VC.usernameTextField.becomeFirstResponder()
+            }
+            showErrorMessage(title: "FIELD IS EMPTY", message: "Username field cannot be empty.", handler: handler )
+            
             return .Invalid
         }
         
@@ -259,14 +303,32 @@ class SignUpViewController: UIViewController {
         }
         
         
-        guard let password = passwordTextField.text else {
+        guard passwordTextField.text! != "" else {
+            handler = {
+                [weak self] _ in
+                guard let VC = self else {
+                    return
+                }
+                VC.passwordTextField.becomeFirstResponder()
+            }
+            showErrorMessage(title: "FIELD IS EMPTY", message: "Password field can't be empty.", handler: handler )
+            
             return .Invalid
         }
-
-        guard let retypedPassword = retypePasswordTextField.text else {
-             return .Invalid
+        
+        guard retypePasswordTextField.text! != "" else {
+            handler = {
+                [weak self] _ in
+                guard let VC = self else {
+                    return
+                }
+                VC.retypePasswordTextField.becomeFirstResponder()
+            }
+            showErrorMessage(title: "FIELD IS EMPTY", message: "Retype-Password field can't be empty.", handler: handler )
+            
+            return .Invalid
         }
-        guard password == retypedPassword else {
+        guard passwordTextField.text! == retypePasswordTextField.text! else {
             handler = {
                 [weak self] _ in
                 guard let VC = self else {
@@ -281,6 +343,8 @@ class SignUpViewController: UIViewController {
         
         return .Valid
     }
+    
+ 
     /*
      // MARK: - Navigation
      

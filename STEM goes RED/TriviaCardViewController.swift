@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class TriviaCardViewController: UIViewController {
 
@@ -16,6 +17,11 @@ class TriviaCardViewController: UIViewController {
     @IBOutlet weak var bioLabel: UILabel!
     @IBAction func Play(_ sender: UIButton) {
     }
+    @IBAction func showLeaderboard(_ sender: UIButton) {
+    }
+    @IBAction func showRules(_ sender: UIButton) {
+    }
+    
     
     var facts: [Factoid]! = []
     var images: [UIImage]! = []
@@ -24,6 +30,7 @@ class TriviaCardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(Auth.auth().currentUser?.email)
         ref.observeSingleEvent(of: .value){
             snaphot in
             

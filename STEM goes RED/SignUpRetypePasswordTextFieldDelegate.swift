@@ -33,10 +33,9 @@ class SignUpRetypePasswordTextFieldDelegate: NSObject, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             if viewController.validate() {
-                let email: Email = viewController.emailTextField.text!
-                let password: Password = viewController.passwordTextField.text!
+               
                 viewController.resignFirstResponder()
-                viewController.signIn(credentials:(email, password))
+                viewController.signUp()
             }
             return true
     }

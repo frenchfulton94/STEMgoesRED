@@ -14,6 +14,17 @@ class AboutViewController: UIViewController {
     @IBOutlet weak var aboutTableView: UITableView!
     
     @IBAction func pull(_ sender: UIPanGestureRecognizer) {
+//        let parentView = super.view
+//        let yPosition = sender.translation(in: parentView).y
+//        
+//       
+//            view.frame.origin.y = yPosition
+//        
+//        print("yp: \(yPosition)")
+//        print("yo: \(view.frame.origin.y)")
+        
+       // sender.setTranslation(CGPoint.zero, in: self.view)
+        
     }
     typealias event = (String,String)
     var sections: [String] = ["About", "Schedule"]
