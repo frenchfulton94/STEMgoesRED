@@ -31,7 +31,7 @@ class SignUpEmailTextFieldDelegate:NSObject, UITextFieldDelegate {
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        viewController.usernameTextField.becomeFirstResponder()
+        viewController.passwordTextField.becomeFirstResponder()
         
         return true
     }

@@ -15,11 +15,9 @@ typealias Credentials = (Email,Password)
 
 class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var retypePasswordTextField: UITextField!
     @IBOutlet weak var emailCheck: UIImageView!
-    @IBOutlet weak var usernameCheck: UIImageView!
     @IBOutlet weak var passwordCheck: UIImageView!
     @IBOutlet weak var retypeCheck: UIImageView!
     @IBOutlet weak var signUpButton: UIButton!
@@ -30,20 +28,24 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func SignUp(_ sender: UIButton) {
+        resignFirstResponder()
         guard preValidate() == .Valid else {
             
             return
         }
-        signUp()
+        signup(){
+            [weak self] in
+            guard let VC = self else {
+                return
+            }
+            VC.next()
+        }
     }
     
     let valid = UIImage(named: "valid")
     let invalid = UIImage(named: "invalid")
     lazy var emailDelegate:SignUpEmailTextFieldDelegate = {
         return SignUpEmailTextFieldDelegate(self)
-    }()
-    lazy var usernameDelegate: SignUpUsernameTextFieldDelegate = {
-        return SignUpUsernameTextFieldDelegate(self)
     }()
     lazy var passwordDelegate: SignUpPasswordTextFieldDelegate = {
         return SignUpPasswordTextFieldDelegate(self)
@@ -53,6 +55,8 @@ class SignUpViewController: UIViewController {
     }()
     var pageViewController: AppPageViewController!
     var validationStatus: [String:ValidationResponse] = ["Email" : .None, "Username" : .None, "Password" : .None, "Retype" : .None]
+
+
     
     override func viewWillAppear(_ animated: Bool) {
         updateLabel()
@@ -65,94 +69,27 @@ class SignUpViewController: UIViewController {
         
         emailTextField.delegate = emailDelegate
         
-        
-        usernameTextField.delegate = usernameDelegate
-        
         passwordTextField.delegate = passwordDelegate
         
         retypePasswordTextField.delegate = retypePasswordDelegate
+        
+       
         // Do any additional setup after loading the view.
         
     }
     
     
-    func signUp() {
-        let email: Email = emailTextField.text!
-        let password: Password = passwordTextField.text!
-        let credentials: Credentials = (email, password)
-        var handler: ((UIAlertAction)->())?
-        
-        Auth.auth().createUser(withEmail: credentials.0  , password: credentials.1) { [weak self] (user, error) in
-            // ...
-            guard let VC = self else {
-                return
-            }
-            
-            guard let errorMessage = error else {
-                print("success")
-                
-                let completion = {
-                    let defaults = UserDefaults.standard
-                    defaults.set(true, forKey: "newHome")
-                    let viewController = VC.pageViewController.mainControllers.first! as! TriviaCardViewController
-                    VC.pageViewController.dataSource = VC.pageViewController
-                    weak var parent = VC.pageViewController.parent as? ContainerViewController
-                    VC.pageViewController.setViewControllers([viewController], direction: .forward, animated: true, completion: {
-                        _ in
-                        guard let container = parent else {
-                            return
-                        }
-                        
-                        container.loadAbout()
-                        
-                    })
-                }
-                VC.signIn(credentials: credentials, completion: completion)
-               
-                
-                return
-            }
-            
-            VC.handleSignUpErrors(errorMessage: errorMessage)
-        }
+    func next() {
+        let viewController = pageViewController.initialControllers[3] as! SignUpUsernameViewController
+        viewController.credentials = createCredentials()
+        viewController.pageViewController = pageViewController
+        pageViewController.setViewControllers([viewController], direction: .forward
+            , animated: true, completion: nil)
     }
 
-    private func sendEmailVerification(credentials: Credentials) {
-        Auth.auth().currentUser?.sendEmailVerification { (error) in
-            guard let errorMessage = error else {
-                
-                return
-            }
-            
-            print(errorMessage)
-        }
-    }
+
     
-    func signIn(credentials: Credentials, completion: (()->())?){
-        
-        Auth.auth().signIn(withEmail: credentials.0 , password: credentials.1) {
-            [weak self] user, error in
-            
-            guard let VC = self else {
-                
-                return
-            }
-            guard let errorMessage = error else {
-                completion?()
-                return
-            }
-            let title = (errorMessage._userInfo!["error_name"] as! String).replacingOccurrences(of: "_", with: "").replacingOccurrences(of: "ERROR ", with: "")
-            let message = errorMessage.localizedDescription
-            var handler:((UIAlertAction)->()) = {
-                _ in
-                let viewController = VC.pageViewController.initialControllers[1] as! LoginViewController
-                viewController.pageViewController = VC.pageViewController
-                VC.pageViewController.setViewControllers([viewController], direction: .reverse, animated: true, completion: nil)
-                
-            }
-            VC.showErrorMessage(title: title, message: message, handler: handler)
-        }
-    }
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -166,8 +103,6 @@ class SignUpViewController: UIViewController {
                 emailCheck.isHidden = false
             }
             emailCheck.image = validationStatus["Email"] == ValidationResponse.Valid ? valid : invalid
-        case "Username":
-            usernameCheck.image = validationStatus["Username"] == ValidationResponse.Valid ? valid : invalid
         case "Password":
             passwordCheck.image = validationStatus["Password"] == ValidationResponse.Valid ? valid : invalid
         case "Retye":
@@ -195,14 +130,28 @@ class SignUpViewController: UIViewController {
         activity.addAction(alert)
         present(activity, animated: true, completion: nil)
     }
-    
-    private func validateUserName(_ username: String) -> ValidationResponse {
-        return .Valid
+    func signup(completion: @escaping ()->()){
+        
+        Auth.auth().createUser(withEmail: emailTextField.text!  , password: passwordTextField.text!) { [weak self] (user, error) in
+            // ...
+            guard let VC = self else {
+                return
+            }
+            
+            guard let errorMessage = error else {
+                print("success")
+                completion()
+                
+                return
+            }
+            
+            VC.handleSignUpErrors(errorMessage: errorMessage)
+        }
+        
     }
     
-    private func checkUsernameAvailability(_ username: String) -> ValidationResponse {
-        return .Valid
-    }
+
+
     
     func handleSignUpErrors(errorMessage: Error){
         let errorName = errorMessage._userInfo!["error_name"] as! String
@@ -246,6 +195,10 @@ class SignUpViewController: UIViewController {
         
     }
     
+    func createCredentials() -> Credentials {
+        return (emailTextField.text!, passwordTextField.text!)
+    }
+    
     func preValidate() -> ValidationResponse {
         var handler: ((UIAlertAction)->())?
         
@@ -261,47 +214,7 @@ class SignUpViewController: UIViewController {
             
             return .Invalid
         }
-        let username = usernameTextField.text!
-        guard username != "" else {
-            handler = {
-                [weak self] _ in
-                guard let VC = self else {
-                    return
-                }
-                VC.usernameTextField.becomeFirstResponder()
-            }
-            showErrorMessage(title: "FIELD IS EMPTY", message: "Username field cannot be empty.", handler: handler )
-            
-            return .Invalid
-        }
-        
-        guard validateUserName(username) == .Valid else {
-            handler = {
-                [weak self] _ in
-                guard let VC = self else {
-                    return
-                }
-                VC.usernameTextField.becomeFirstResponder()
-            }
-            let message = ""
-            showErrorMessage(title: "USERNAME NOT VALID", message: message , handler: handler)
-            return .Invalid
-        }
-        // check availibility of username
-        guard checkUsernameAvailability(username) == .Valid else {
-            
-            handler = {
-                [weak self] _ in
-                guard let VC = self else {
-                    return
-                }
-                VC.usernameTextField.becomeFirstResponder()
-            }
-            
-            showErrorMessage(title: "USERNAME NOT AVAILABLE", message: "Someon already has the username \(username)", handler: handler)
-            return .Exists
-        }
-        
+
         
         guard passwordTextField.text! != "" else {
             handler = {

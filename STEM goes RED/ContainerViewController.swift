@@ -17,13 +17,13 @@ class ContainerViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     
     @IBAction func pull(_ sender: UIPanGestureRecognizer) {
-        let yPosition = sender.translation(in: view).y
-       
-        if view.subviews.count > 3 {
-             print(view.subviews)
-            view.subviews[3].frame.origin.y = yPosition
-        }
-        sender.setTranslation(CGPoint.zero, in: view)
+//        let yPosition = sender.translation(in: view).y
+//       
+//        if view.subviews.count > 3 {
+//             print(view.subviews)
+//            view.subviews[3].frame.origin.y = yPosition
+//        }
+//        //sender.setTranslation(CGPoint.zero, in: view)
     }
     override func viewWillAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener {

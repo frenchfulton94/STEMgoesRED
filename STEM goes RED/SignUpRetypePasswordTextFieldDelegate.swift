@@ -32,11 +32,11 @@ class SignUpRetypePasswordTextFieldDelegate: NSObject, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            if viewController.validate() {
+        
                
                 viewController.resignFirstResponder()
-                viewController.signUp()
-            }
+                viewController.SignUp(UIButton())
+        
             return true
     }
     

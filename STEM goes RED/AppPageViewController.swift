@@ -10,7 +10,7 @@ import UIKit
 
 class AppPageViewController: UIPageViewController {
     lazy var initialControllers: [UIViewController] = {
-        return [newViewController(id: "startUp"), newViewController(id: "login"), newViewController(id: "signUp")]
+        return [newViewController(id: "startUp"), newViewController(id: "login"), newViewController(id: "signUp"), newViewController(id: "usernameVC")]
     }()
     let defaults = UserDefaults.standard
     

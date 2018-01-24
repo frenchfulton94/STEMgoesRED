@@ -22,7 +22,7 @@ extension leaderboardViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "boardCell", for: indexPath) as! leaderboardTableViewCell
         let player = players[indexPath.row]
         cell.rankLabel.text = "\(indexPath.row + 1)"
-        cell.usernameLabel.text = player.userName
+        cell.usernameLabel.text = player.userInfo.userName
         cell.scoreLabel.text = "\(player.score)"
         let condition = (indexPath.row % 2) != 0
         let blue = UIColor(red: 82, green: 145, blue: 199, alpha: 1)

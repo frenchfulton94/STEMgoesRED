@@ -12,20 +12,26 @@ import UIKit
 
 
 struct Player {
-    var userID: String
-    var userName: String
+    var userInfo: User
     var score: Int
+}
+
+struct User {
+    var userID: String!
+    var userName: String!
+    var email: String!
+    var password: String!
 }
 
 struct Event {
     //    init(){
     //
     //    }
-    var title: String
-    var description: String
-    var speaker: String
-    var time: Date
-    var location: String
+    var title: String!
+    var description: String!
+    var speaker: String!
+    var time: Date!
+    var location: String!
 }
 
 struct TriviaItem {
@@ -35,6 +41,8 @@ struct TriviaItem {
     var question: String
     var answer: String
     var points: Int
+    var choices: [String]
+    var answered: Bool
 }
 
 struct Factoid {

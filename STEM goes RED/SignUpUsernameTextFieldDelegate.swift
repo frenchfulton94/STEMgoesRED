@@ -11,10 +11,10 @@ import UIKit
 
 
 class SignUpUsernameTextFieldDelegate: NSObject, UITextFieldDelegate {
-    weak var viewController: SignUpViewController!
+    weak var viewController: SignUpUsernameViewController!
     
     private var valid: ValidationResponse = .None
-    init(_ viewController: SignUpViewController) {
+    init(_ viewController: SignUpUsernameViewController) {
         self.viewController = viewController
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -30,14 +30,10 @@ class SignUpUsernameTextFieldDelegate: NSObject, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        viewController.passwordTextField.becomeFirstResponder()
+        viewController.signUp(UIButton())
         return true
         
     }
     
-    private func validate(_ username:String) -> ValidationResponse{
-        
-        return ValidationResponse.Valid
-    }
-    
+ 
 }
