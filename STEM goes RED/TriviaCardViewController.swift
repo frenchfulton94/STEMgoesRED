@@ -16,25 +16,33 @@ class TriviaCardViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
     @IBAction func Play(_ sender: UIButton) {
+        guard let _ = Auth.auth().currentUser else {
+            
+            return
+        }
+        let viewController = getViewController(with: "triviaGameVC") as! TriviaGameViewController
+        present(viewController, animated: true, completion: nil)
     }
     @IBAction func showLeaderboard(_ sender: UIButton) {
+        let viewController = getViewController(with: "leaderboardVC") as! leaderboardViewController
+        present(viewController, animated: true, completion: nil)
     }
     @IBAction func showRules(_ sender: UIButton) {
+        presentRules()
     }
     
     
     var facts: [Factoid]! = []
     var images: [UIImage]! = []
-    var ref: DatabaseReference! = Database.database().reference().child("Factoids")
+    var ref: DatabaseReference! = Database.database().reference()
     var timer: Timer! = Timer()
-
+    var rules: String!
+    var appPageViewController: AppPageViewController!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(Auth.auth().currentUser?.email)
-        ref.observeSingleEvent(of: .value){
-            snaphot in
-            
-        }
+        
+        getRules()
+      
         
         // Do any additional setup after loading the view.
     }
@@ -81,6 +89,36 @@ class TriviaCardViewController: UIViewController {
             print("Download Finished")
             
         }
+    }
+    
+    func getViewController(with key:String) -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: key)
+        
+    }
+    
+    func presentRules() {
+        let alert = UIAlertController(title: "How to Play", message: rules, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func getRules(){
+        ref.child("Game").child("Rules").observeSingleEvent(of: .value, with: {
+            snapshot in
+            
+            guard snapshot.exists() else {
+                return
+            }
+            let temp = (snapshot.value! as! String).split(separator: ":")
+            var new: String = ""
+            for rule in temp {
+                new.append(rule + "\n\n")
+            }
+            self.rules = new
+        })
     }
 
     /*

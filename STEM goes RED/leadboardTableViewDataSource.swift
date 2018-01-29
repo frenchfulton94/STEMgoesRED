@@ -21,11 +21,11 @@ extension leaderboardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "boardCell", for: indexPath) as! leaderboardTableViewCell
         let player = players[indexPath.row]
-        cell.rankLabel.text = "\(indexPath.row + 1)"
+        cell.rankLabel.text = "\(indexPath.row + 1)."
         cell.usernameLabel.text = player.userInfo.userName
-        cell.scoreLabel.text = "\(player.score)"
+        cell.scoreLabel.text = "\(player.score!)"
         let condition = (indexPath.row % 2) != 0
-        let blue = UIColor(red: 82, green: 145, blue: 199, alpha: 1)
+        let blue = UIColor(red: 82/255, green: 145/255, blue: 199/255, alpha: 1.0)
         cell.backgroundColor =  condition ? blue : UIColor.white
         let textColor = condition ? UIColor.white : blue
         cell.rankLabel.textColor = textColor

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class AppPageViewController: UIPageViewController {
     lazy var initialControllers: [UIViewController] = {
@@ -23,6 +24,11 @@ class AppPageViewController: UIPageViewController {
         super.viewDidLoad()
 
         if defaults.bool(forKey: "newHome") {
+            do {
+                try Auth.auth().signOut()
+            } catch {
+                
+            }
             guard let firstViewController = mainControllers.first else {
                 return
             }
@@ -32,6 +38,7 @@ class AppPageViewController: UIPageViewController {
                 
             }
         } else {
+            
             guard let firstViewController = initialControllers.first else {
                 return
             }

@@ -39,13 +39,15 @@
 		2483CF0B2016D2430092B41E /* AboutTouchGestureExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483CF0A2016D2430092B41E /* AboutTouchGestureExtension.swift */; };
 		2483CF0F2017B1BD0092B41E /* leaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483CF0E2017B1BD0092B41E /* leaderboardViewController.swift */; };
 		2483CF112017B1E70092B41E /* leaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483CF102017B1E70092B41E /* leaderboardTableViewCell.swift */; };
-		2483CF132017BD3D0092B41E /* leadboardTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483CF122017BD3D0092B41E /* leadboardTableViewDelegate.swift */; };
+		2483CF132017BD3D0092B41E /* leadboardTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483CF122017BD3D0092B41E /* leadboardTableViewDataSource.swift */; };
 		24CC8C1720054E35004EF55E /* ValidationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CC8C1620054E35004EF55E /* ValidationHandler.swift */; };
 		24D46495201806EC007F66B5 /* TriviaGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D46494201806EC007F66B5 /* TriviaGameViewController.swift */; };
 		24D4649720180704007F66B5 /* TriviaGameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D4649620180704007F66B5 /* TriviaGameTableViewCell.swift */; };
 		24D464992018093D007F66B5 /* questionChoicesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D464982018093D007F66B5 /* questionChoicesTableViewDataSource.swift */; };
 		24D4649B20180956007F66B5 /* questionChoicesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D4649A20180956007F66B5 /* questionChoicesTableViewDelegate.swift */; };
 		24D4649D20182814007F66B5 /* SignUpUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D4649C20182814007F66B5 /* SignUpUsernameViewController.swift */; };
+		24DC449F2018946000882BD4 /* loginEmailTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC449E2018946000882BD4 /* loginEmailTextFieldDelegate.swift */; };
+		24DC44A12018947200882BD4 /* loginPasswordTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC44A02018947200882BD4 /* loginPasswordTextFieldDelegate.swift */; };
 		3B6E922B23C2FD2016F2EC1D /* Pods_STEM_goes_RED.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3D6B25EE841E3E3D4C6ADE /* Pods_STEM_goes_RED.framework */; };
 		5BEED12CC541ADAA8C540A02 /* Pods_STEM_goes_REDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11769EA66BD29FBB9C36186B /* Pods_STEM_goes_REDTests.framework */; };
 		785ABBF717D0A584734D83B0 /* Pods_STEM_goes_REDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F7A9B5DA018A56BA394059 /* Pods_STEM_goes_REDUITests.framework */; };
@@ -112,13 +114,15 @@
 		2483CF0A2016D2430092B41E /* AboutTouchGestureExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTouchGestureExtension.swift; sourceTree = "<group>"; };
 		2483CF0E2017B1BD0092B41E /* leaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leaderboardViewController.swift; sourceTree = "<group>"; };
 		2483CF102017B1E70092B41E /* leaderboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = leaderboardTableViewCell.swift; path = "/Users/michaelfultonjr./Documents/STEM goes RED/STEM goes RED/leaderboardTableViewCell.swift"; sourceTree = "<absolute>"; };
-		2483CF122017BD3D0092B41E /* leadboardTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leadboardTableViewDelegate.swift; sourceTree = "<group>"; };
+		2483CF122017BD3D0092B41E /* leadboardTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leadboardTableViewDataSource.swift; sourceTree = "<group>"; };
 		24CC8C1620054E35004EF55E /* ValidationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHandler.swift; sourceTree = "<group>"; };
 		24D46494201806EC007F66B5 /* TriviaGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaGameViewController.swift; sourceTree = "<group>"; };
 		24D4649620180704007F66B5 /* TriviaGameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaGameTableViewCell.swift; sourceTree = "<group>"; };
 		24D464982018093D007F66B5 /* questionChoicesTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = questionChoicesTableViewDataSource.swift; sourceTree = "<group>"; };
 		24D4649A20180956007F66B5 /* questionChoicesTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = questionChoicesTableViewDelegate.swift; sourceTree = "<group>"; };
 		24D4649C20182814007F66B5 /* SignUpUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUsernameViewController.swift; sourceTree = "<group>"; };
+		24DC449E2018946000882BD4 /* loginEmailTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginEmailTextFieldDelegate.swift; sourceTree = "<group>"; };
+		24DC44A02018947200882BD4 /* loginPasswordTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginPasswordTextFieldDelegate.swift; sourceTree = "<group>"; };
 		4F3D6B25EE841E3E3D4C6ADE /* Pods_STEM_goes_RED.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_STEM_goes_RED.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D64961AF9BBCADEC850CD12 /* Pods-STEM goes REDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STEM goes REDTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-STEM goes REDTests/Pods-STEM goes REDTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7F1D5B299FB31C9714949AA2 /* Pods-STEM goes RED.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STEM goes RED.release.xcconfig"; path = "Pods/Target Support Files/Pods-STEM goes RED/Pods-STEM goes RED.release.xcconfig"; sourceTree = "<group>"; };
@@ -186,7 +190,7 @@
 				24D4649A20180956007F66B5 /* questionChoicesTableViewDelegate.swift */,
 				24D46494201806EC007F66B5 /* TriviaGameViewController.swift */,
 				24D4649620180704007F66B5 /* TriviaGameTableViewCell.swift */,
-				2483CF122017BD3D0092B41E /* leadboardTableViewDelegate.swift */,
+				2483CF122017BD3D0092B41E /* leadboardTableViewDataSource.swift */,
 				2483CF0E2017B1BD0092B41E /* leaderboardViewController.swift */,
 				2483CF0A2016D2430092B41E /* AboutTouchGestureExtension.swift */,
 				2483CF0820124EFF0092B41E /* iDiscoverViewController.swift */,
@@ -199,6 +203,8 @@
 				2466ADAE1FEAEECD00699027 /* HeaderViewController.swift */,
 				2466AD9E1FEAED5D00699027 /* ContainerViewController.swift */,
 				2466ADA01FEAED6E00699027 /* LoginViewController.swift */,
+				24DC449E2018946000882BD4 /* loginEmailTextFieldDelegate.swift */,
+				24DC44A02018947200882BD4 /* loginPasswordTextFieldDelegate.swift */,
 				2466ADA21FEAED7B00699027 /* SignUpViewController.swift */,
 				24CC8C1620054E35004EF55E /* ValidationHandler.swift */,
 				2466ADA41FEAED9300699027 /* TriviaCardViewController.swift */,
@@ -566,12 +572,14 @@
 				2466ADBD1FEAF78700699027 /* AboutTableViewDelegate.swift in Sources */,
 				2483CF0520120DC80092B41E /* GeneralExtensions.swift in Sources */,
 				2466ADB51FEAF5AC00699027 /* SignUpUsernameTextFieldDelegate.swift in Sources */,
+				24DC449F2018946000882BD4 /* loginEmailTextFieldDelegate.swift in Sources */,
 				2466ADAB1FEAEDD600699027 /* LocationTableViewCell.swift in Sources */,
 				2483CF01200EB94B0092B41E /* Models.swift in Sources */,
 				2483CF0B2016D2430092B41E /* AboutTouchGestureExtension.swift in Sources */,
 				2466ADB91FEAF6B400699027 /* SIgnUpEmailTextFieldDelegate.swift in Sources */,
+				24DC44A12018947200882BD4 /* loginPasswordTextFieldDelegate.swift in Sources */,
 				24D46495201806EC007F66B5 /* TriviaGameViewController.swift in Sources */,
-				2483CF132017BD3D0092B41E /* leadboardTableViewDelegate.swift in Sources */,
+				2483CF132017BD3D0092B41E /* leadboardTableViewDataSource.swift in Sources */,
 				24CC8C1720054E35004EF55E /* ValidationHandler.swift in Sources */,
 				2466AD9F1FEAED5D00699027 /* ContainerViewController.swift in Sources */,
 				2466ADB11FEAEF0200699027 /* StartUpViewController.swift in Sources */,

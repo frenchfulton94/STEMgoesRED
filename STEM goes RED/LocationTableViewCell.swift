@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import MapKit
 
 class LocationTableViewCell: UITableViewCell {
    
+    @IBOutlet weak var mapView: MKMapView!
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,5 +25,16 @@ class LocationTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setUpMap() {
+        let initialLocation = CLLocation(latitude: 40.7127431, longitude: -74.01337949999999)
+        let regionRadius: CLLocationDistance = 1000
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(initialLocation.coordinate,
+                                                                  regionRadius, regionRadius)
+        mapView.setRegion(coordinateRegion, animated: true)
+        
+    }
+    
+    
 
 }

@@ -17,17 +17,17 @@ class SignUpRetypePasswordTextFieldDelegate: NSObject, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
 
-
-            guard let retypedPassword = textField.text else {
-                return
-            }
-           
-            guard let password = viewController.passwordTextField.text else {
-                return
-            }
-            
-            viewController.validationStatus["Retype"] = checkMatch(password, retypedPassword)
-            viewController.toggleStatus(index: "Retype")
+//
+//            guard let retypedPassword = textField.text else {
+//                return
+//            }
+//           
+//            guard let password = viewController.passwordTextField.text else {
+//                return
+//            }
+//            
+//            viewController.validationStatus["Retype"] = checkMatch(password, retypedPassword)
+//            viewController.toggleStatus(index: "Retype")
 
     }
     

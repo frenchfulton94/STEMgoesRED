@@ -28,8 +28,10 @@ class SignUpUsernameViewController: UIViewController {
                 return
             }
             VC.signIn(with: VC.credentials){
-                userID in
-                VC.addToFirebase(userID)
+                user in
+                VC.addToFirebase(user.uid)
+                let localUser = VC.createUser(user)
+                VC.addUserInfoToDevice(user: localUser)
                 VC.next()
             }
         }
@@ -57,7 +59,7 @@ class SignUpUsernameViewController: UIViewController {
   
 
     
-    func signIn(with credentials: Credentials, completion: ((String)->())?){
+    func signIn(with credentials: Credentials, completion: ((User)->())?){
         
         Auth.auth().signIn(withEmail: credentials.0 , password: credentials.1) {
             [weak self] user, error in
@@ -68,7 +70,7 @@ class SignUpUsernameViewController: UIViewController {
             }
             guard let errorMessage = error else {
                 
-                completion?(user!.uid)
+                completion?(user!)
                 return
             }
             let title = (errorMessage._userInfo!["error_name"] as! String).replacingOccurrences(of: "_", with: "").replacingOccurrences(of: "ERROR ", with: "")
@@ -189,6 +191,19 @@ class SignUpUsernameViewController: UIViewController {
                 
             })
         
+    }
+    
+    func createUser(_ user: User) -> LocalUser {
+        var localUser = LocalUser()
+        localUser.email = user.email!
+        localUser.userID = user.uid
+        localUser.userName = usernameTextField.text!
+        return localUser
+    }
+    
+    func addUserInfoToDevice(user: LocalUser) {
+        let defaults = UserDefaults.standard
+        defaults.setValue(user, forKey: "userInfo")
     }
     /*
      // MARK: - Navigation

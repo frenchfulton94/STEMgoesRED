@@ -28,6 +28,8 @@ class ContainerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener {
             (auth, user) in
+            print(auth)
+            print(user)
             
         }
     }
@@ -64,7 +66,6 @@ class ContainerViewController: UIViewController {
             let infoVC = storyboard.instantiateViewController(withIdentifier: "infoVC") as! AboutViewController
             let infoView = infoVC.view
             infoView!.frame = CGRect(x: 0, y: self.view.frame.height - 44, width: self.view.frame.width, height: self.view.frame.height - 44 )
-            
             self.addChildViewController(infoVC)
             self.view.addSubview(infoView!)
             

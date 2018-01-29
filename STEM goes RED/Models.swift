@@ -12,15 +12,14 @@ import UIKit
 
 
 struct Player {
-    var userInfo: User
-    var score: Int
+    var userInfo: LocalUser!
+    var score: Int!
 }
 
-struct User {
+struct LocalUser {
     var userID: String!
     var userName: String!
     var email: String!
-    var password: String!
 }
 
 struct Event {
@@ -30,19 +29,36 @@ struct Event {
     var title: String!
     var description: String!
     var speaker: String!
-    var time: Date!
+    var time: String!
     var location: String!
+    var date: Date!
+    
+    static func convertToDate(time: String) -> Date {
+        var components = DateComponents()
+        let calendar = Calendar(identifier: .gregorian)
+        var timeComp1 = time.split(separator: ":")
+        var timeComp2 = timeComp1[1].split(separator:" ")
+        components.hour = Int(timeComp1[0])
+        components.minute = Int(timeComp2[0])
+        return calendar.date(from: components)!
+        
+    }
+    
+    func convertDateToString(date: Date) {
+        
+    }
 }
 
 struct TriviaItem {
     //    init(){
     //
     //    }
-    var question: String
-    var answer: String
-    var points: Int
-    var choices: [String]
-    var answered: Bool
+    var question: String!
+    var answer: String!
+    var points: Int!
+    var choices: [String]!
+    var answered: Bool!
+    var category: String!
 }
 
 struct Factoid {

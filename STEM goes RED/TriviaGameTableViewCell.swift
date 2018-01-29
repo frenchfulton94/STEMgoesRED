@@ -11,6 +11,7 @@ import UIKit
 class TriviaGameTableViewCell: UITableViewCell {
 
     @IBOutlet weak var choiceLabel: UILabel!
+    var viewController: TriviaGameViewController!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
