@@ -52,7 +52,7 @@ class leaderboardViewController: UIViewController {
     }
     
     func getLeaderboardInfo(completion:([Player]) -> ()){
-        ref.child("Game").child("Leaderboard").queryOrderedByValue().queryLimited(toFirst: 15).observe(.value){
+        ref.child("Game").child("Leaderboard").queryLimited(toFirst: 15).observe(.value){
             [weak self] snapShot in
             guard let VC = self else {
                 return
@@ -66,11 +66,17 @@ class leaderboardViewController: UIViewController {
             var player = Player()
             var localUser = LocalUser()
             var temp: [Player] = []
+            
             for user in result {
                 localUser.userName = user.key
                 player.userInfo = localUser
                 player.score = user.value
                 temp.append(player)
+            }
+            temp.sort {
+                player, player2 in
+                
+                return player.score > player2.score
             }
             print(temp)
             VC.players = temp
@@ -85,8 +91,10 @@ class leaderboardViewController: UIViewController {
         
         getUsername() {
             username in
-            
-            self.ref.child("Game").child("Leaderboard").child(username).observeSingleEvent(of: .value, with: {
+            guard let userName = username else {
+                return
+            }
+            self.ref.child("Game").child("Leaderboard").child(userName).observeSingleEvent(of: .value, with: {
                 snapShot in
                 guard snapShot.exists() else {
                     return
@@ -98,24 +106,13 @@ class leaderboardViewController: UIViewController {
         }
     }
     
-    func getUsername(completion: @escaping (String) -> ()){
+    func getUsername(completion: @escaping (String?) -> ()){
         guard let user = Auth.auth().currentUser else {
             return
         }
-        let uid = user.uid
-        ref.child("Users").child(uid).observeSingleEvent(of: .value, with: {[weak self] snapshot in
-            
-            guard let VC = self else {
-                return
-            }
-            
-            guard snapshot.exists() else {
-                return
-            }
-            
-            let username = snapshot.value! as! String
-            completion(username)
-        })
+        print("Display Name")
+        print(user.displayName)
+        completion(user.displayName)
     }
     /*
      // MARK: - Navigation

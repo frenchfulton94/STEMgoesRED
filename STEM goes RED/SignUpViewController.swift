@@ -54,6 +54,7 @@ class SignUpViewController: UIViewController {
         return SignUpRetypePasswordTextFieldDelegate(self)
     }()
     var pageViewController: AppPageViewController!
+    var homeContext: Bool = false
     var validationStatus: [String:ValidationResponse] = ["Email" : .None, "Username" : .None, "Password" : .None, "Retype" : .None]
 
 
@@ -83,6 +84,7 @@ class SignUpViewController: UIViewController {
         let viewController = pageViewController.initialControllers[3] as! SignUpUsernameViewController
         viewController.credentials = createCredentials()
         viewController.pageViewController = pageViewController
+        viewController.homeContext = homeContext
         pageViewController.setViewControllers([viewController], direction: .forward
             , animated: true, completion: nil)
     }

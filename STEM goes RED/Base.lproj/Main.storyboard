@@ -66,11 +66,19 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t78-Ht-gsK">
+                                <rect key="frame" x="149.5" y="154" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.85490196078431369" green="0.21568627450980393" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="t78-Ht-gsK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="134" id="3Hh-ei-TIg"/>
                             <constraint firstItem="mkf-0j-TiZ" firstAttribute="top" secondItem="x3y-nO-G59" secondAttribute="bottom" constant="16" id="6Wb-eK-ktf"/>
+                            <constraint firstItem="t78-Ht-gsK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9Wy-Lr-ORK"/>
                             <constraint firstItem="x3y-nO-G59" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="iav-cB-wj3"/>
                             <constraint firstItem="x3y-nO-G59" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="94" id="sgO-q1-aea"/>
                             <constraint firstItem="mkf-0j-TiZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tHO-HP-rY7"/>
@@ -84,6 +92,7 @@
                     <connections>
                         <outlet property="logoImageView" destination="x3y-nO-G59" id="xXt-Lk-emS"/>
                         <outlet property="sectionLabel" destination="mkf-0j-TiZ" id="Nn9-sM-Xvy"/>
+                        <outlet property="welcomeLabel" destination="t78-Ht-gsK" id="2jN-IG-Hpi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -410,6 +419,12 @@
                                             <action selector="toggleView:" destination="Tx2-ut-dux" id="kff-Mn-Dg6"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8Tw-qA-T6a"/>
+                                    <barButtonItem title="Sign Out" id="kHU-IX-9qc">
+                                        <connections>
+                                            <action selector="logOut:" destination="Tx2-ut-dux" id="1Wd-fH-6KK"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <color key="tintColor" red="0.32156862745098036" green="0.56862745098039214" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -433,6 +448,7 @@
                         <outlet property="HeaderToolBar" destination="L2D-Lk-guN" id="YSl-kG-ha0"/>
                         <outlet property="aboutTableView" destination="OZd-eq-CyC" id="uj8-sm-aeZ"/>
                         <outlet property="eventInformationLabel" destination="k1B-MI-UlD" id="fH7-88-Iq9"/>
+                        <outlet property="signOutButton" destination="kHU-IX-9qc" id="VYc-HI-wzO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xKX-6r-Arv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -452,7 +468,21 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ySA-Rc-Sqr">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xh0-zY-Vd3">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="OAh-ja-bHb"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" red="0.85490196078431369" green="0.21568627450980393" blue="0.19607843137254902" alpha="0.59859267979452058" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Xh0-zY-Vd3" secondAttribute="trailing" id="9me-Ga-her"/>
+                                    <constraint firstItem="Xh0-zY-Vd3" firstAttribute="top" secondItem="ySA-Rc-Sqr" secondAttribute="top" id="Mpa-r3-29L"/>
+                                    <constraint firstItem="Xh0-zY-Vd3" firstAttribute="leading" secondItem="ySA-Rc-Sqr" secondAttribute="leading" id="oNM-L9-WOJ"/>
+                                </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Antonia Novello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qf3-rx-TYI">
                                 <rect key="frame" x="29" y="529" width="271" height="25"/>

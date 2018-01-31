@@ -31,7 +31,7 @@ class SignUpUsernameViewController: UIViewController {
                 user in
                 VC.addToFirebase(user.uid)
                 let localUser = VC.createUser(user)
-                VC.addUserInfoToDevice(user: localUser)
+                //VC.addUserInfoToDevice(user: localUser)
                 VC.next()
             }
         }
@@ -39,6 +39,7 @@ class SignUpUsernameViewController: UIViewController {
     let ref: DatabaseReference! = Database.database().reference()
     var credentials: Credentials!
     var pageViewController: AppPageViewController!
+    var homeContext: Bool = false
     lazy var usernameDelegate:SignUpUsernameTextFieldDelegate = { return SignUpUsernameTextFieldDelegate(self)}()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,8 +57,6 @@ class SignUpUsernameViewController: UIViewController {
         viewController.pageViewController = pageViewController
         pageViewController.setViewControllers([viewController], direction: .reverse, animated: true, completion: nil)
     }
-  
-
     
     func signIn(with credentials: Credentials, completion: ((User)->())?){
         
@@ -80,6 +79,7 @@ class SignUpUsernameViewController: UIViewController {
                 let viewController = VC.pageViewController.initialControllers[1] as! LoginViewController
                 viewController.pageViewController = VC.pageViewController
                 VC.pageViewController.setViewControllers([viewController], direction: .reverse, animated: true, completion: nil)
+               
                 
             }
             VC.showErrorMessage(title: title, message: message, handler: handler)
@@ -172,6 +172,10 @@ class SignUpUsernameViewController: UIViewController {
     
     func addToFirebase(_ userID: String){
         ref.child("Users").child(userID).setValue(usernameTextField.text)
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = usernameTextField.text
+        changeRequest?.commitChanges(completion: nil)
+        
     }
     
     func next(){
@@ -186,8 +190,13 @@ class SignUpUsernameViewController: UIViewController {
                 guard let container = parent else {
                     return
                 }
-                
-                container.loadAbout()
+                 container.toggleWelcomeMessage(bool: true)
+                if self.homeContext {
+                    (viewController as! TriviaCardViewController).playGame()
+                } else {
+                   container.toggleAboutVC()
+                  
+                }
                 
             })
         

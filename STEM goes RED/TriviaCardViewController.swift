@@ -16,12 +16,7 @@ class TriviaCardViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
     @IBAction func Play(_ sender: UIButton) {
-        guard let _ = Auth.auth().currentUser else {
-            
-            return
-        }
-        let viewController = getViewController(with: "triviaGameVC") as! TriviaGameViewController
-        present(viewController, animated: true, completion: nil)
+       playGame()
     }
     @IBAction func showLeaderboard(_ sender: UIButton) {
         let viewController = getViewController(with: "leaderboardVC") as! leaderboardViewController
@@ -95,6 +90,22 @@ class TriviaCardViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: key)
         
+    }
+    
+    func playGame() {
+        guard let _ = Auth.auth().currentUser else {
+            let vc = appPageViewController.initialControllers.first as! StartUpViewController
+            vc.pageViewController = appPageViewController
+            vc.homeContext = true
+            DispatchQueue.main.async {
+                self.appPageViewController.setViewControllers([vc], direction: .reverse, animated: true, completion: nil)
+                (self.appPageViewController.parent as! ContainerViewController).toggleWelcomeMessage(bool: false)
+            }
+            
+            return
+        }
+        let viewController = getViewController(with: "triviaGameVC") as! TriviaGameViewController
+        present(viewController, animated: true, completion: nil)
     }
     
     func presentRules() {

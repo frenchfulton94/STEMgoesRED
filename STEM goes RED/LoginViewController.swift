@@ -23,6 +23,8 @@ class LoginViewController: UIViewController {
     lazy var passwordTextFieldDelegate: loginPasswordTextFieldDelegate! = {
         return loginPasswordTextFieldDelegate(self)
     }()
+    
+    var homeContext: Bool = false
     @IBAction func Back(_ sender: UIBarButtonItem) {
         goBack()
     }
@@ -30,6 +32,7 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         updateLabel()
     }
+    
     
     @IBAction func login(_ sender: UIButton) {
         print("login")
@@ -186,8 +189,13 @@ class LoginViewController: UIViewController {
             guard let VC = self else {
                 return
             }
-            
-            (VC.pageViewController.parent as! ContainerViewController).loadAbout()
+             (VC.pageViewController.parent as! ContainerViewController).toggleWelcomeMessage(bool: true)
+            if VC.homeContext {
+                (viewController as! TriviaCardViewController).playGame()
+                (VC.pageViewController.parent as! ContainerViewController).childViewControllers[1].viewDidLoad()
+            } else {
+                (VC.pageViewController.parent as! ContainerViewController).toggleAboutVC()
+            }
         }
     }
         /*

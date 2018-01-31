@@ -19,7 +19,6 @@ class AppPageViewController: UIPageViewController {
         return [newViewController(id: "TriviaCard"), newViewController(id: "iDiscoverCard")]
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,6 +32,7 @@ class AppPageViewController: UIPageViewController {
                 return
             }
             dataSource = self
+            (firstViewController as! TriviaCardViewController).appPageViewController = self
             setViewControllers([firstViewController], direction: .forward, animated: true){
                 animationFinished in
                 
@@ -45,7 +45,6 @@ class AppPageViewController: UIPageViewController {
             (firstViewController as! StartUpViewController).pageViewController = self
             setViewControllers([firstViewController], direction: .forward, animated: true){
                 animationFinished in
-                
             }
         }
     }

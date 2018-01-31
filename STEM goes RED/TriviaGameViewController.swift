@@ -12,7 +12,6 @@ import FirebaseAuth
 
 class TriviaGameViewController: UIViewController {
     
-    
     @IBOutlet weak var questionTimeLabel: UILabel!
     @IBOutlet weak var playerScoreLabel: UILabel!
     @IBOutlet weak var questionImageView: UIImageView!
@@ -24,7 +23,6 @@ class TriviaGameViewController: UIViewController {
     var localScore: Int = 0
     var correct: Int!
     var incorrect: Int!
-    var username: String!
     var questionLength: Float!
     var questionTime: Int = 0
     var choices:[String?] = [nil, nil, nil, nil]
@@ -38,25 +36,33 @@ class TriviaGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref.child("Game").observeSingleEvent(of: .value, with: {
+            snapshot in
+            
+            guard snapshot.exists() else {
+                return
+            }
+        })
+        
         setUpGame {
-            [weak self] in
+            
+            [weak self] questions in
+            
             guard let VC = self else {
                 return
             }
-            VC.getTriviaItems {
-                triviaitems in
-                VC.triviaItems = triviaitems
-                DispatchQueue.main.async {
-                    print(triviaitems)
-                    VC.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self?.runGame), userInfo: nil, repeats: true)
-                    VC.updateQuestion()
-                    VC.questionTimeLabel.text = "\(VC.questionLength!)s"
-                    VC.playerScoreLabel.text = "\(VC.localScore)"
-                    VC.questionChoicesTableView.reloadData()
-                    VC.timer.fire()
-                    
-                }
+            
+            VC.triviaItems = VC.getTriviaItems(questions: questions)
+            DispatchQueue.main.async {
+                VC.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self?.runGame), userInfo: nil, repeats: true)
+                VC.updateQuestion()
+                VC.questionTimeLabel.text = "\(VC.questionLength!)s"
+                VC.playerScoreLabel.text = "\(VC.localScore)"
+                VC.questionChoicesTableView.reloadData()
+                VC.timer.fire()
             }
+            
         }
     }
     
@@ -67,7 +73,6 @@ class TriviaGameViewController: UIViewController {
                 self.timer.invalidate()
                 let answer = self.triviaItems[self.current].answer
                 self.displayMessage(answer: answer)
-                
             }
         }
     }
@@ -76,8 +81,8 @@ class TriviaGameViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func setUpGame(completion: @escaping ()->()){
-        ref.child("Game").child("Information").observeSingleEvent(of: .value, with: {
+    func setUpGame(completion: @escaping ([[String:String]])->()){
+        ref.child("Game").observeSingleEvent(of: .value, with: {
             [weak self] snapshot in
             
             guard let VC = self else {
@@ -87,20 +92,19 @@ class TriviaGameViewController: UIViewController {
             guard snapshot.exists() else {
                 return
             }
-            let result = snapshot.value! as! [String: Any]
+            print(snapshot.value)
+            let result = snapshot.value! as! [String:Any]
+            let information = result["Information"]! as! [String : Any]
             print(result)
-            VC.questionLength = result["QuestionLength"] as! Float
-            VC.questionTime = result["QuestionLength"] as! Int
-            VC.correct = result["Correct"] as! Int
-            VC.incorrect = result["Incorrect"] as! Int
+            VC.questionLength = information["QuestionLength"] as! Float
+            VC.questionTime = information["QuestionLength"] as! Int
+            VC.correct = information["Correct"] as! Int
+            VC.incorrect = information["Incorrect"] as! Int
             
-            VC.getOnlineScore {
-                
-                completion()
-                
-            }
+            VC.localScore = VC.getOnlineScore(leaderBoard: result["Leaderboard"]! as! [String : Int])
+            let questions = result["Questions"] as! Array<[String : String]>
+            completion(questions)
         })
-        
     }
     func updateQuestion(){
         if current < triviaItems.count {
@@ -109,56 +113,29 @@ class TriviaGameViewController: UIViewController {
             questionTime = Int(questionLength)
             updateChoices()
         } else {
-            
         }
     }
     
-    
-    
-    func getOnlineScore(completion: @escaping ()->()) {
-        getUsername {
-            [weak self] username in
-            print(username)
-            guard let VC = self else {
-                return
-            }
-            VC.username = username
-            VC.ref.child("Game").child("Leaderboard").child(username).observeSingleEvent(of: .value, with: {
-                snapshot in
-                
-                guard snapshot.exists() else {
-                    
-                    completion()
-                    return
-                }
-                
-                VC.localScore = snapshot.value! as! Int
-                completion()
-            })
-            
+    func getOnlineScore(leaderBoard:[String:Any]) -> Int{
+        guard let username = getUsername() else {
+            return 0
         }
-        
+        guard let score = leaderBoard[username] else {
+            return 0
+        }
+        return  score as! Int
     }
     
-    func getUsername(completion: @escaping (String) -> ()){
-        let uid = Auth.auth().currentUser!.uid
-        ref.child("Users").child(uid).observeSingleEvent(of: .value, with: {[weak self] snapshot in
-            
-            guard let VC = self else {
-                return
-            }
-            
-            guard snapshot.exists() else {
-                return
-            }
-            
-            let username = snapshot.value! as! String
-            completion(username)
-        })
+    func getUsername() -> String? {
+        guard let user = Auth.auth().currentUser else {
+            print(Auth.auth().currentUser?.email)
+            return nil
+        }
+       
+        return user.displayName
     }
     
     func updateScore(isCorrect: Bool){
-        
         let value: Int! = isCorrect ? correct : incorrect
         if (localScore + value) >= 0 {
             localScore += value
@@ -168,8 +145,6 @@ class TriviaGameViewController: UIViewController {
     func updateTime() {
         questionTimeLabel.text = "\(questionTime)s"
         questionTime -= 1
-        
-        
     }
     
     func endGame(){
@@ -177,6 +152,9 @@ class TriviaGameViewController: UIViewController {
     }
     
     func saveScore(){
+        guard let username = getUsername() else {
+            return
+        }
         ref.child("Game").child("Leaderboard").child(username).setValue(localScore)
         
     }
@@ -184,8 +162,6 @@ class TriviaGameViewController: UIViewController {
         playerScoreLabel.text = "\(localScore)"
         questionChoicesTableView.reloadData()
     }
-    
-    
     
     func displayMessage(answer: String?){
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
@@ -198,18 +174,18 @@ class TriviaGameViewController: UIViewController {
                     self.updateScore(isCorrect: result)
                     
                     self.current += 1
-                   
+                    
                     if self.current < self.triviaItems.count {
                         self.updateQuestion()
-                         self.updateUI()
+                        self.updateUI()
                         self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.runGame), userInfo: nil, repeats: true)
                         self.timer.fire()
                     } else {
-                         self.updateUI()
+                        self.updateUI()
                         alert.title = "Game Over"
                         alert.message = "You score is \(self.localScore)"
                         let goHome = UIAlertAction(title: "Leave Game", style: .default, handler: {action in
-                               self.dismiss(animated: true, completion: self.saveScore)
+                            self.dismiss(animated: true, completion: self.saveScore)
                         })
                         alert.addAction(goHome)
                         self.present(alert, animated: true, completion: nil)
@@ -227,8 +203,6 @@ class TriviaGameViewController: UIViewController {
         alert.title = "INCORRECT"
         alert.message = "The correct answer is \(real)"
         present(alert, animated: true, completion: nil)
-        
-        
     }
     
     func updateChoices(){
@@ -258,8 +232,6 @@ class TriviaGameViewController: UIViewController {
         while set.count != 0 {
             choiceNum = Int(arc4random_uniform(UInt32(temp.count)))
             num =  Int(arc4random_uniform(UInt32(set.count)))
-            
-            
             num = 0
             
             print(choiceNum)
@@ -274,35 +246,20 @@ class TriviaGameViewController: UIViewController {
             let value = set[n]
             choices[value] = choice
             set.remove(value)
-            
         }
     }
     
-    func getTriviaItems(completion: @escaping ([TriviaItem])->()) {
-        ref.child("Game").child("Questions").observeSingleEvent(of: .value, with: { [weak self] snapshot in
-            
-            guard let VC = self else {
-                return
-            }
-            
-            guard snapshot.exists() else {
-                return
-            }
-            var triviaItem = TriviaItem()
-            let result = snapshot.value! as! Array<[String: String]>
-            var temp:[TriviaItem] = []
-            for item in result {
-                triviaItem.question = item["Question"]
-                triviaItem.answer = item["Answer"]
-                triviaItem.category = item["Category"]
-                temp.append(triviaItem)
-            }
-            completion(temp)
-            
-            
-            
-            
-        })
+    func getTriviaItems(questions: [[String:String]]) -> [TriviaItem] {
+        
+        var triviaItem = TriviaItem()
+        var temp: [TriviaItem] = []
+        for item in questions {
+            triviaItem.question = item["Question"]
+            triviaItem.answer = item["Answer"]
+            triviaItem.category = item["Category"]
+            temp.append(triviaItem)
+        }
+        return temp
     }
     
     

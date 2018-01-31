@@ -8,12 +8,14 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 
 class AboutViewController: UIViewController {
     @IBOutlet weak var HeaderToolBar: UIToolbar!
     @IBOutlet weak var eventInformationLabel: UIBarButtonItem!
     @IBOutlet weak var aboutTableView: UITableView!
+    @IBOutlet weak var signOutButton: UIBarButtonItem!
     
     @IBAction func pull(_ sender: UIPanGestureRecognizer) {
         //        let parentView = super.view
@@ -28,6 +30,11 @@ class AboutViewController: UIViewController {
         // sender.setTranslation(CGPoint.zero, in: self.view)
         
     }
+    
+    @IBAction func logOut(_ sender: UIBarButtonItem) {
+        signOut()
+    }
+    
     let ref: DatabaseReference! = Database.database().reference()
     var sections: [String] = ["About", "Schedule"]
     var schedule: [Event] = []
@@ -51,7 +58,8 @@ class AboutViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        signOutButton.isEnabled = false
+        toggleSignOutButton()
         view.layer.cornerRadius = 35;
         view.layer.masksToBounds = true;
         aboutTableView.rowHeight = UITableViewAutomaticDimension
@@ -67,7 +75,7 @@ class AboutViewController: UIViewController {
     }
     
     func getInfo() {
-        ref.child("Information").queryOrdered(byChild: "Time").observe(.value, with: {
+        ref.child("Information").observe(.value, with: {
             snapshot in
             
             guard snapshot.exists() else {
@@ -107,6 +115,32 @@ class AboutViewController: UIViewController {
         })
     }
     
+    func signOut() {
+        UserDefaults.standard.set(false, forKey: "newHome")
+        var vc = (parent as! ContainerViewController).pageViewController
+        DispatchQueue.main.async{
+            (self.parent as! ContainerViewController).toggleAboutVC()
+        }
+        (vc!.initialControllers.first! as! StartUpViewController).homeContext = false
+        vc!.setViewControllers([vc!.initialControllers.first!], direction: .reverse, animated: true, completion: {
+            finished in
+            do {
+                try Auth.auth().signOut()
+            } catch {
+                
+            }
+        })
+        
+    }
+    
+    func toggleSignOutButton() {
+        guard let _ = Auth.auth().currentUser else {
+
+            signOutButton.isEnabled = false
+            return
+        }
+        signOutButton.isEnabled = true
+    }
     
     
     /*

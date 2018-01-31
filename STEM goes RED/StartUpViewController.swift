@@ -14,17 +14,20 @@ class StartUpViewController: UIViewController {
     @IBOutlet weak var skipButton: UIButton!
     
     weak var pageViewController: AppPageViewController!
-    
+    var homeContext: Bool! = false
+
     @IBAction func login(_ sender: UIButton) {
         weak var viewController = pageViewController.initialControllers[1] as? LoginViewController
         guard let vc = viewController else {
             return
         }
         vc.pageViewController = pageViewController
-       
+        vc.homeContext = homeContext
         pageViewController.setViewControllers([vc], direction: .forward, animated: true) {
             animationFinished in
+            
         }
+    
     }
     override func viewWillAppear(_ animated: Bool) {
         updateLabel()
@@ -35,10 +38,12 @@ class StartUpViewController: UIViewController {
             return
         }
        vc.pageViewController = pageViewController
-       
+        vc.homeContext = homeContext
+
         
         pageViewController.setViewControllers([vc], direction: .forward, animated: true) {
             animationFinished in
+           
         }
     }
     @IBAction func skip(_ sender: UIButton) {
@@ -50,19 +55,22 @@ class StartUpViewController: UIViewController {
         defaults.set(true, forKey: "newHome")
         pageViewController.dataSource = pageViewController
         weak var parent = pageViewController.parent as? ContainerViewController
-
+        VC.appPageViewController = pageViewController
         pageViewController.setViewControllers([VC], direction: .forward, animated: true){ _ in
             guard let container = parent else {
                 return
             }
-          container.loadAbout()
+            container.toggleWelcomeMessage(bool: true)
+          container.toggleAboutVC()
             
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let title = UserDefaults.standard.bool(forKey: "newHome") ? "Cancel" : "Skip"
+        skipButton.setTitle(title, for: .normal)
+
         
     }
 
@@ -73,6 +81,7 @@ class StartUpViewController: UIViewController {
     func updateLabel(){
         (pageViewController.parent as! ContainerViewController).sectionLabel.text = "WELCOME"
     }
+    
 
     /*
     // MARK: - Navigation
